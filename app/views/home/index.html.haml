@@ -1,0 +1,75 @@
+= render 'shared/header', header: @header
+.cam-icon
+  %a 出品
+  %i.fas.fa-camera.fa-4x
+%main
+  .top_image
+  .contents
+    .items
+      .items__header
+        %h1 人気のカテゴリー
+        .items__header__tag
+          %ul
+            %li レディース
+            %li メンズ
+            %li 家電・スマホ・カメラ
+            %li おもちゃ・ホビー・グッズ
+      .items__main
+        .items__main__title
+          %h2 レディース新着アイテム
+          %p
+            もっとみる
+            %span.fas.fa-angle-right
+      .items__main
+        .items__main__title
+          %h2 メンズ新着アイテム
+          %p
+            もっとみる
+            %span.fas.fa-angle-right
+      .items__main
+        .items__main__title
+          %h2 家電・スマホ・カメラ新着アイテム
+          %p
+            もっとみる
+            %span.fas.fa-angle-right
+      .items__main
+        .items__main__title
+          %h2 おもちゃ・ホビー・グッズ新着アイテム
+          %p
+            もっとみる
+            %span.fas.fa-angle-right
+    .items
+      .items__header
+        %h1 人気のブランド
+        .items__header__tag
+          %ul
+            %li シャネル
+            %li ルイヴィトン
+            %li シュプリーム
+            %li ナイキ
+      .items__main
+        .items__main__title
+          %h2 シャネル新着アイテム
+          %p
+            もっとみる
+            %span.fas.fa-angle-right
+      .items__main
+        .items__main__title
+          %h2 ルイヴィトン新着アイテム
+          %p
+            もっとみる
+            %span.fas.fa-angle-right
+      .items__main
+        .items__main__title
+          %h2 シュプリーム新着アイテム
+          %p
+            もっとみる
+            %span.fas.fa-angle-right
+      .items__main
+        .items__main__title
+          %h2 ナイキ新着アイテム
+          %p
+            もっとみる
+            %span.fas.fa-angle-right
+
+= render 'shared/footer', footer: @footer
