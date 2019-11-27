@@ -1,6 +1,7 @@
 = render 'shared/header', header: @header
-.cam-icon
-  %a 出品
+
+= link_to '', class: "cam-icon" do
+  %p 出品
   %i.fas.fa-camera.fa-4x
 %main
   .top_image
