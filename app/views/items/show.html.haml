@@ -56,13 +56,14 @@
       あんしん・あんぜんへの取り組み
 
 .item-message
-  .message-content
-    %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-  .message-form
-    %p 
-    %textarea
-    = link_to '', class: "button" do
-      コメントする
+  .message-container
+    .message-content
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .message-form
+      %p 
+      %textarea
+      = link_to '', class: "button" do
+        コメントする
 
 .nav-item
   %ul
@@ -74,16 +75,70 @@
       %span.fas.fa-angle-right
 .social-media-box
   %ul
-    -# =link_to "#",class:"fb" do
-    %li
-    %li
+    =link_to "https://www.facebook.com/",class:"sns-icon" do
+      %i.fab.fa-facebook-square.fa-3x
+    =link_to "https://twitter.com/",class:"sns-icon" do
+      %i.fab.fa-twitter-square.fa-3x
+    =link_to "https://www.pinterest.jp/",class:"sns-icon" do
+      %i.fab.fa-pinterest-square.fa-3x
+      
 
 .items-index
-  .items-index__box
-    %h2
-    .items-index__box__content
-      .items-index__box__content__items-box 
-  .items-index__box
-    %h2
-    .items-index__box__content
-      .items-index__box__content__items-box 
+  .items-index__contents
+    %h2 ほげほげさんのその他の商品
+    .items-index__contents__box
+      .items-box
+        -#clearfix?
+        %img{src:"/img/food_ebi_fry.png"}/
+        .items-body
+          .items-name
+            エビフライ
+          .items-price
+            %p ¥6,000
+            %i.far.fa-heart.fa-1x
+      .items-box
+        -#clearfix?
+        %img{src:"/img/kandume_koukyuu.png"}/
+        .items-body
+          .items-name
+            高級缶詰
+          .items-price
+            %p ¥100
+            %i.far.fa-heart.fa-1x
+      .items-box
+        -#clearfix?
+        %img{src:"/img/food_nametake_nameko.png"}/
+        .items-body
+          .items-name
+            高級缶詰
+          .items-price
+            %p ¥100
+            %i.far.fa-heart.fa-1x
+      .items-box
+        -#clearfix?
+        %img{src:"/img/food_ebi_fry.png"}/
+        .items-body
+          .items-name
+            エビフライ
+          .items-price
+            %p ¥6,000
+            %i.far.fa-heart.fa-1x
+      .items-box
+        -#clearfix?
+        %img{src:"/img/kandume_koukyuu.png"}/
+        .items-body
+          .items-name
+            高級缶詰
+          .items-price
+            %p ¥100
+            %i.far.fa-heart.fa-1x
+      .items-box
+        -#clearfix?
+        %img{src:"/img/food_nametake_nameko.png"}/
+        .items-body
+          .items-name
+            高級缶詰
+          .items-price
+            %p ¥100
+            %i.far.fa-heart.fa-1x
+      
