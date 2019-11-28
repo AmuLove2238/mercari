@@ -1,3 +1,4 @@
+= render 'shared/header', header: @header
 .item-box
   .item-name
     %h1 古今和歌集
@@ -79,6 +80,8 @@
       %i.fab.fa-facebook-square.fa-3x
     =link_to "https://twitter.com/",class:"sns-icon" do
       %i.fab.fa-twitter-square.fa-3x
+    =link_to "https://line.me/ja/",class:"sns-icon" do
+      %i.fab.fa-line.fa-3x
     =link_to "https://www.pinterest.jp/",class:"sns-icon" do
       %i.fab.fa-pinterest-square.fa-3x
       
@@ -87,58 +90,6 @@
   .items-index__contents
     %h2 ほげほげさんのその他の商品
     .items-index__contents__box
-      .items-box
-        -#clearfix?
-        %img{src:"/img/food_ebi_fry.png"}/
-        .items-body
-          .items-name
-            エビフライ
-          .items-price
-            %p ¥6,000
-            %i.far.fa-heart.fa-1x
-      .items-box
-        -#clearfix?
-        %img{src:"/img/kandume_koukyuu.png"}/
-        .items-body
-          .items-name
-            高級缶詰
-          .items-price
-            %p ¥100
-            %i.far.fa-heart.fa-1x
-      .items-box
-        -#clearfix?
-        %img{src:"/img/food_nametake_nameko.png"}/
-        .items-body
-          .items-name
-            高級缶詰
-          .items-price
-            %p ¥100
-            %i.far.fa-heart.fa-1x
-      .items-box
-        -#clearfix?
-        %img{src:"/img/food_ebi_fry.png"}/
-        .items-body
-          .items-name
-            エビフライ
-          .items-price
-            %p ¥6,000
-            %i.far.fa-heart.fa-1x
-      .items-box
-        -#clearfix?
-        %img{src:"/img/kandume_koukyuu.png"}/
-        .items-body
-          .items-name
-            高級缶詰
-          .items-price
-            %p ¥100
-            %i.far.fa-heart.fa-1x
-      .items-box
-        -#clearfix?
-        %img{src:"/img/food_nametake_nameko.png"}/
-        .items-body
-          .items-name
-            高級缶詰
-          .items-price
-            %p ¥100
-            %i.far.fa-heart.fa-1x
+      = render 'items/itembox', itembox: @itembox
       
+= render 'shared/footer', footer: @footer

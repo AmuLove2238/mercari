@@ -185,6 +185,10 @@ li{
       .fa-twitter-square{
         color:#5d9dc9;
       }
+
+      .fa-line{
+        color:#00B900;
+      }
   
       .fa-pinterest-square{
         color:#aa262a;
@@ -195,7 +199,7 @@ li{
 
 .items-index{
   width: 700px;
-  height: 400px;
+  height: auto;
   margin: 0 auto;
   &__contents{
     height: auto;
@@ -209,11 +213,21 @@ li{
         background-color: #fff;
         color:#333;
         width: 220px;
+        height: 330px ;
         margin-bottom: 20px;
+        text-decoration: none;
 
         img{
           width: 220px;
+          height: 200px;
         
+        }
+
+        .items-body{
+          
+          &__name{
+            
+          }
         }
       }
       
