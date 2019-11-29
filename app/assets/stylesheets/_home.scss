@@ -41,6 +41,7 @@ main{
     padding: 40px 0px 10px;
     h1{
       font-size:28px;
+      font-weight: bold;
     }
     &__tag{
       font-weight: 600;
@@ -66,6 +67,10 @@ main{
       display: flex;
       justify-content: space-between;
       margin-right: 330px;
+      h2{
+        font-weight: bold;
+        font-size:24px;
+      }
       p{
         color:rgb(0, 149, 238);
         float: right;
