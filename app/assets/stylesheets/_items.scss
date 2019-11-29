@@ -47,6 +47,20 @@ li{
       }
       td{
         width: 61%;
+        span{
+          color:black;
+          font-weight: normal;
+          margin-right: 10px;
+        }
+        .fa-smile{
+          color:#fa2c93;
+        }
+        .fa-meh{
+          color:#f5ab0c;
+        }
+        .fa-frown{
+          color:#2088ff;
+        }
       }
     }
   }
