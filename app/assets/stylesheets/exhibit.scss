@@ -289,13 +289,14 @@ legend {
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
-          padding: 10px 10px 5px 10px;
+          padding: 5px 10px 5px 10px;
+          display: flex;
+          // display: flex;
           p {
-            margin-left: 5px;
+            margin-top:10px;
           }
-          .i {
-            margin-right: 0;
-
+          .icon {
+            margin:10px 0 0 auto;
           }
         }
       }
@@ -327,7 +328,14 @@ legend {
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
-          padding: 10px 10px 5px 10px;
+          padding: 5px 10px 5px 10px;
+          display: flex;
+          p {
+            margin-top:10px;
+          }
+          .icon {
+            margin:10px 0 0 auto;
+          }
         }
       }
     }
@@ -369,7 +377,14 @@ legend {
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
-          padding: 10px 10px 5px 10px;
+          padding: 5px 10px 5px 10px;
+          display: flex;
+          p {
+            margin-top:10px;
+          }
+          .icon {
+            margin:10px 0 0 auto;
+          }
         }
       }
       .region {
@@ -397,7 +412,14 @@ legend {
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
-          padding: 10px 10px 5px 10px;
+          padding: 5px 10px 5px 10px;
+          display: flex;
+          p {
+            margin-top:10px;
+          }
+          .icon {
+            margin:10px 0 0 auto;
+          }
         }
       }
       .days {
@@ -425,7 +447,14 @@ legend {
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
-          padding: 10px 10px 5px 10px;
+          padding: 5px 10px 5px 10px;
+          display: flex;
+          p {
+            margin-top:10px;
+          }
+          .icon {
+            margin:10px 0 0 auto;
+          }
         }
       }
     }
