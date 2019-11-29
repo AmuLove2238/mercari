@@ -42,11 +42,12 @@
 %header
   .header-main
     .header-top
-      .header-top__logo
+      = link_to "/" ,class:"header-top__logo" do
         = image_tag '/svg/fmarket_logo_red.svg',class: "ca_logo",width: "130px"
       .header-top__search
         %input{name: "search",placeholder: "何かお探しですか？", type: "search", value: ""}/
-        -# %input{name: "submit",placeholder: "", type: "submit", value: "&#xf002"}/
+        %button{type:"submit",class:"search-icon"}
+          %i.fas.fa-search
     .header-bottom
       .header-bottom-left
         .header-bottom-left__category
