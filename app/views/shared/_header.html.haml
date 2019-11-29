@@ -40,10 +40,33 @@
 -#           %p マイページ
 
 %header
-  .header-top
-    .header-top__logo
-      %img{src:"/svg/fmarket_logo_red.svg"}/
-    .header-top__search
-      %input{name: "search",placeholder: "何かお探しですか？", type: "search", value: ""}/
-      %input{name: "submit",placeholder: "", type: "submit", value: "&#xf002"}/
-  .header-bottom
+  .header-main
+    .header-top
+      .header-top__logo
+        = image_tag '/svg/fmarket_logo_red.svg',class: "ca_logo",width: "130px"
+      .header-top__search
+        %input{name: "search",placeholder: "何かお探しですか？", type: "search", value: ""}/
+        -# %input{name: "submit",placeholder: "", type: "submit", value: "&#xf002"}/
+    .header-bottom
+      .header-bottom-left
+        .header-bottom-left__category
+          %i.fas.fa-list-ul
+          カテゴリーから探す
+        .header-bottom-left__brand
+          %i.fas.fa-tag
+          ブランドから探す
+      .header-bottom-right
+        %ul
+          %li
+            %i.far.fa-heart
+            いいね！一覧
+          %li
+            %i.far.fa-bell
+            お知らせリスト
+          %li
+            %i.fas.fa-check
+            やることリスト
+          %li
+            %i.far.fa-heart
+            マイページ
+
