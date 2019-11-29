@@ -1,40 +1,49 @@
-.header
+-# %header
+-#   .header-top
+-#     .header-top__logo
+-#       %img{:src => "/img/mercari_logo_horizontal.png"}/
+-#     .header-top__search
+-#       何かお探しですか？
+-#       %h1.header-top__search__icon
+-#         %i.fas.fa-search
+-#   .header-bottom
+-#     .header-bottom__left
+-#       .header-bottom__left__left
+-#         .header-bottom__left__left__icon
+-#           %i.fab.fa-twitter
+-#         .header-bottom__left__left__logo
+-#           カテゴリーから探す
+-#       .header-bottom__left__right
+-#         .header-bottom__left__right__icon
+-#           %i.fab.fa-twitter
+-#         .header-bottom__left__right__logo
+-#           ブランドから探す
+-#     .header-bottom-right
+-#       .header-bottom-right__1
+-#         .header-bottom-right__1__icon
+-#           %i.fas.fa-heart
+-#         .header-bottom-right__1__logo
+-#           %p いいね！一覧
+-#       .header-bottom-right__2
+-#         .header-bottom-right__2__icon
+-#           %i.fas.fa-bell
+-#         .header-bottom-right__2__logo
+-#           %p お知らせ
+-#       .header-bottom-right__3
+-#         .header-bottom-right__3__icon
+-#           %i.fas.fa-check
+-#         .header-bottom-right__3__logo
+-#           %p やることリスト
+-#       .header-bottom-right__4
+-#         .header-bottom-right__4__icon
+-#         .header-bottom-right__4__logo
+-#           %p マイページ
+
+%header
   .header-top
-    .header-top__mercari
-      %img.header-top__mercari__logo{:src => "/img/mercari_logo_horizontal.png"}/
+    .header-top__logo
+      %img{src:"/svg/fmarket_logo_red.svg"}/
     .header-top__search
-      何かお探しですか？
-      %h1.header-top__search__icon
-        %i.fas.fa-search
+      %input{name: "search",placeholder: "何かお探しですか？", type: "search", value: ""}/
+      %input{name: "submit",placeholder: "", type: "submit", value: "&#xf002"}/
   .header-bottom
-    .header-bottom__left
-      .header-bottom__left__left
-        .header-bottom__left__left__icon
-          %i.fab.fa-twitter
-        .header-bottom__left__left__logo
-          カテゴリーから探す
-      .header-bottom__left__right
-        .header-bottom__left__right__icon
-          %i.fab.fa-twitter
-        .header-bottom__left__right__logo
-          ブランドから探す
-    .header-bottom-right
-      .header-bottom-right__1
-        .header-bottom-right__1__icon
-          %i.fas.fa-heart
-        .header-bottom-right__1__logo
-          %p いいね！一覧
-      .header-bottom-right__2
-        .header-bottom-right__2__icon
-          %i.fas.fa-bell
-        .header-bottom-right__2__logo
-          %p お知らせ
-      .header-bottom-right__3
-        .header-bottom-right__3__icon
-          %i.fas.fa-check
-        .header-bottom-right__3__logo
-          %p やることリスト
-      .header-bottom-right__4
-        .header-bottom-right__4__icon
-        .header-bottom-right__4__logo
-          %p マイページ
