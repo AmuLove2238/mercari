@@ -1,0 +1,104 @@
+
+.fab{
+  color: white;
+  padding:30px 15px 0 0;
+}
+
+
+.top{
+  background-image: image-url("/img/footer-bgi.jpg");
+  background-size: cover;
+  height: auto;
+  width: 100%;
+  background-position: center center;
+  display: flex;
+
+  .top-item{
+    display: flex;
+    justify-content: space-between;
+    width: 750px;
+    margin: 0px auto;
+    
+    .top-item__left{
+      padding-top: 30px;
+
+      &__footer_content{
+        color:white;
+        h1{
+          font-size: 24px;
+        }
+        p{
+          display: block;
+          font-size:35px;
+          margin-bottom: 20px;
+        }
+      }
+      &__footer_icons{
+        display: flex;
+        .mercari-logo{
+          width: 68px;
+          margin-right: 20px;
+        }
+        
+        .applestore{
+          margin-right: 18px;
+        }
+      }
+     }
+     .top-item__right{
+      .phone-logo{
+        width: 300px;
+      }
+     }
+  }
+}
+
+
+
+.main{
+  height: auto;
+  width: 100%;
+  background-color:rgb(34, 34, 34);
+  font-size: 13px;
+
+  .list{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    ul{
+      padding-right: 40px;
+      font-size:12px;
+
+      li{
+        list-style: none;
+        color: rgb(255, 255, 255);
+        opacity: 0.7;
+        margin-top: 16px;
+        :hover{
+          border-bottom: solid;
+        }
+      }
+      
+    }
+    h3{
+      color:white;
+      font-size:16px;
+    }
+    &__privacy2{
+      margin-top: 25px;
+    }
+  }
+}
+
+.bottom{
+  display: flex;
+  color:white;
+  margin-left: 300px;
+  font-size: 12px;
+
+  .mercari_gray{
+    width: 124px;
+    margin-right: 370px;
+    height: 30px;
+  }
+}
