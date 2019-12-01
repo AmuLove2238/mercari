@@ -1,0 +1,22 @@
+.registration-main
+  .registration-main__container
+    %h2.registration-main__container__header
+      電話番号の確認
+    = form_for @user, class: "registration-form", url:'/signup/step3'  do |f|
+      = hidden_field_tag :current_step, 'step2'
+
+      .form-registration-inner
+        .form-group
+        = f.fields_for :phonenumber do |t|
+          = t.label :携帯電話の番号
+          = t.telephone_field :phone_number, placeholder: "携帯電話の番号を入力" , autofocus: true, class: "login-input-text input-default"
+          = @user.errors.full_messages_for(:phone_number).first
+          %p
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        .form-group
+          = f.submit "次へ進む", class: 'login-submit btn-default btn-red'
+          %p
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .form-group.text-right
+          %p
+            %a{ href: '#'}電話番号の確認が必要な理由
