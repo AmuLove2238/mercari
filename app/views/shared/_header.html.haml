@@ -12,6 +12,8 @@
         .header-bottom-left__category
           %i.fas.fa-list-ul
           カテゴリーから探す
+          = render 'category/category-tab' 
+
         .header-bottom-left__brand
           %i.fas.fa-tag
           ブランドから探す
@@ -30,3 +32,4 @@
             %i.far.fa-heart
             マイページ
 
+%script{src:"category.js"}/
