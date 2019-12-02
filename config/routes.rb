@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'items#index'
+  root to: 'home#index'
+  get 'exhibit/index'=>"exhibit#index"
   resources :items
 
   get "signup", to: "signup#index"
