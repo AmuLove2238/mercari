@@ -202,8 +202,8 @@ li{
   margin: 0 auto;
   &__contents{
     height: auto;
+    width: 100%;
     &__box{
-      height: auto;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
