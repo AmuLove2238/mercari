@@ -1,6 +1,6 @@
 
 
-= form_for @user, class: "registration-form", url:'sms_confirmation_signup_index' do |f|
+= form_for @user, class: "registration-form", url: sms_confirmation_signup_index_path do |f|
   = hidden_field_tag :current_step, 'first_signup_page'
   = f.label :ニックネーム
   = f.text_field :nickname, placeholder: "例 ）メルカリ太郎" , autofocus: true, class: "login-input-text input-default"
