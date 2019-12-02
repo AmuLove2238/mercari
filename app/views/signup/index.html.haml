@@ -4,12 +4,11 @@
       新規会員登録
     .registration-main__container__resistration-form
       .registration-main__container__resistration-form__box
-        %a{ href: '/signup/first_signup_page', class: 'btn-default btn-mail' }
-          = fa_icon 'envelope', class: 'btn-mail-icon'
-          メールアドレスで登録する
-        %a{ href: '#', class: 'btn-default btn-fb' }
-          = fa_icon 'facebook-square', class: 'btn-fb-icon'
-          Facebookで登録する
-        %a{ href: '#', class: 'btn-default btn-google' }
-          %img{ src: "https://developers.google.com/identity/images/g-logo.png?hl=ja", width:"25px", height:"25px",class: 'btn-google-icon'}
-          Googleで登録する
+
+        = link_to "新規会員登録", first_signup_page_signup_index_path
+
+        = link_to "Facebookで登録する"
+
+        = link_to "Googleで登録する"
+
+        

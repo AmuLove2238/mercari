@@ -2,7 +2,7 @@
   .registration-main__container
     %h2.registration-main__container__header
       電話番号の確認
-    = form_for @user, class: "registration-form", url:'/signup/address'  do |f|
+    = form_for @user, class: "registration-form", url:'/signup/address_signup_index'  do |f|
       = hidden_field_tag :current_step, 'sms_confirmation'
 
       .form-registration-inner
