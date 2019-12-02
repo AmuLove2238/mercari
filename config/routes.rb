@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'exhibit/index'=>"exhibit#index"
   resources :items, only: [:index, :show]
 
-  resources :signup do
+  resources :signup, only: [:index,:create] do
     collection do
       get 'first_signup_page'   #最初の登録ページ
       post 'sms_confirmation'  #電話番号登録
