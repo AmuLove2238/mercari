@@ -69,4 +69,7 @@ gem 'mini_magick'
 
 gem 'fog-aws'
 
+
+gem 'erb2haml'
+
 gem 'haml-rails'

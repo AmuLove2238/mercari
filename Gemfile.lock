@@ -77,6 +77,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
+    erb2haml (0.1.5)
+      html2haml
     erubis (2.7.0)
     excon (0.69.1)
     execjs (2.7.0)
@@ -250,6 +252,7 @@ DEPENDENCIES
   capistrano3-unicorn
   carrierwave
   coffee-rails (~> 4.2)
+  erb2haml
   fog-aws
   haml-rails
   jbuilder (~> 2.5)
