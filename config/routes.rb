@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
   get 'exhibit/index'=>"exhibit#index"
-  resources :items
+  resources :items, only: [:index, :show]
 
   resources :signup do
     collection do
