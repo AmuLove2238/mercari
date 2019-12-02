@@ -1,7 +1,7 @@
 class SignupController < ApplicationController
 
-  before_action :save_step1_to_session, only: :step2
-  before_action :save_step2_to_session, only: :step3
+  before_action :save_first_signup_page, only: :sms_confirmation
+  before_action :save_sms_confirmation, only: :address
 
 
 
@@ -9,12 +9,12 @@ class SignupController < ApplicationController
     
   end
 
-  def step1 
+  def first_signup_page
     @user = User.new
     @user.build_personal
   end
 
-  def save_step1_to_session
+  def save_first_signup_page
     session[:user_params] = user_params
     session[:personal_attributes_after_step1] = user_params[:personal_attributes]
     session[:personal_attributes_after_step1]
@@ -22,28 +22,28 @@ class SignupController < ApplicationController
     session[:birthday] = make_birthday #birthday作成メソッドを呼び出しsesion[:birthday]に代入
     @user = User.new(session[:user_params]) #バリデーション用にインスタンス変数を作成
     @user.build_personal(session[:personal_attributes_after_step1]) #personalモデルのsession[:personal_attributes_after_step1]紐付ける
-    render '/signup/step1' unless @user.valid? #バリデーションを通らなければstep1ページに留まる
+    render :first_signup_page unless @user.valid? #バリデーションを通らなければstep1ページに留まる
   end
 
-  def step2 # 電話番号登録
+  def sms_confirmation # 電話番号登録
     @user = User.new
     @user.build_phonenumber
   end
 
-  def save_step2_to_session
+  def save_sms_confirmation
     session[:phonenumber_attributes_after_step2] = user_params[:phonenumber_attributes]
     @user = User.new(session[:user_params])
     @user.build_phonenumber(session[:phonenumber_attributes_after_step2])
-    render :step2 unless @user.valid? #バリデーションを通らなければstep2ページに留まる
+    render :sms_confirmation unless @user.valid? #バリデーションを通らなければstep2ページに留まる
   end
 
-  def step3 # 住所登録
+  def address # 住所登録
     @user = User.new
     @user.build_address
   end
 
 
-  # def step4 クレジット用
+  # def credit_card クレジット用
 
   #   @user = User.new
   #   @user.build_credit
@@ -60,7 +60,7 @@ class SignupController < ApplicationController
       session[:id] = @user.id
       redirect_to complete_signup_signup_index_path
     else
-      render '/signup/step3'
+      render :address
     end
     
   end

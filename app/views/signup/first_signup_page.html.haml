@@ -1,7 +1,7 @@
 
 
-= form_for @user, class: "registration-form", url:'/signup/step2' do |f|
-  = hidden_field_tag :current_step, 'step1'
+= form_for @user, class: "registration-form", url:'/signup/sms_confirmation' do |f|
+  = hidden_field_tag :current_step, 'first_signup_page'
   = f.label :ニックネーム
   = f.text_field :nickname, placeholder: "例 ）メルカリ太郎" , autofocus: true, class: "login-input-text input-default"
   = @user.errors.full_messages_for(:nickname).first
