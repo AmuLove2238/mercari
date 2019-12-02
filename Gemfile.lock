@@ -347,7 +347,7 @@ DEPENDENCIES
   factory_bot_rails
   fog-aws
   font-awesome-rails
-  haml-rails (>= 1.0, <= 2.0.1)
+  haml-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
