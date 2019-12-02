@@ -1,0 +1,40 @@
+
+
+= form_for @user, class: "registration-form", url: sms_confirmation_signup_index_path do |f|
+  = hidden_field_tag :current_step, 'first_signup_page'
+  = f.label :ニックネーム
+  = f.text_field :nickname, placeholder: "例 ）メルカリ太郎" , autofocus: true, class: "login-input-text input-default"
+  = @user.errors.full_messages_for(:nickname).first
+  = f.label :メールアドレス
+  = f.email_field :email, placeholder: "PC・携帯どちらでも可", autofocus: true, class: "login-input-text input-default"
+  = @user.errors.full_messages_for(:email).first
+  = f.label :パスワード
+  = f.password_field :encrypted_password, placeholder: "７文字以上", class: "login-input-text input-default"
+  = @user.errors.full_messages_for(:encrypted_password).first
+
+  = f.fields_for :personal do |p|
+    = p.label :"(お名前全角)"
+    = p.text_field :family_name_kanji, placeholder: "例)山田", class: "input-default half"
+    = @user.errors.full_messages_for(:family_name_kanji).first
+    = p.text_field :first_name_kanji, placeholder: "例)彩", class: "input-default half"
+    = @user.errors.full_messages_for(:first_name_kanji).first
+    = p.label :"お名前カナ(全角)"
+    = p.text_field :family_name_kana, placeholder: "例)ヤマダ", class: "input-default half"
+    = @user.errors.full_messages_for(:family_name_kana).first
+    = p.text_field :first_name_kana, placeholder: "例)アヤ", class: "input-default half"
+    = @user.errors.full_messages_for(:first_name_kana).first
+    = p.label :生年月日
+    != sprintf(p.date_select(:birthday, prompt:"--", use_month_numbers: true,start_year: Time.now.year, end_year:1930, date_separator: '%s'),'年 ', '月 ') + '日'
+    = @user.errors.full_messages_for(:birthday).first
+
+  = f.submit "次へ進む", class: 'login-submit btn-default btn-red'
+
+
+
+
+
+
+
+
+
+

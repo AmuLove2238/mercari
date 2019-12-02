@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      personal: ユーザー詳細
+    attributes:
+      personal:
+        id: ID
+        birthday: 生年月日
+        email: メールアドレス
+        salon_id: サロン
+        password: パスワード
+        created_at: 登録日時
+        updated_at: 更新日時
