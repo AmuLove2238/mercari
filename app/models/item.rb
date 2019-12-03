@@ -11,4 +11,6 @@ class Item < ApplicationRecord
   has_many :regions
   has_many :likes
   has_many :comments
+
+  mount_uploader :image, ImageUploader
 end
