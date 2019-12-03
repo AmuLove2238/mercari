@@ -265,6 +265,7 @@
       margin: 0 0 0 auto;
       .burden {
         height: 33.3%;
+        position: relative;
         &__character {
           display: flex;
           p {
@@ -282,24 +283,26 @@
             vertical-align: top;
           }
         }
-        &__frame {
+        select {
           background-color: white;
           border: 1px solid gray;
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
+          width: 100%;
           padding: 5px 10px 5px 10px;
           display: flex;
           p {
             margin-top:10px;
           }
-          .icon {
-            margin:10px 0 0 auto;
-          }
+          // i {
+          //   margin:10px 0 0 auto;
+
+          // }
         }
       }
       .region {
-        // height: 33.3%;
+        height: 33.3%;
         &__character {
           display: flex;
           p {
@@ -317,18 +320,19 @@
             vertical-align: top;
           }
         }
-        &__frame {
+        select {
           background-color: white;
           border: 1px solid gray;
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
+          width: 100%;
           padding: 5px 10px 5px 10px;
           display: flex;
           p {
             margin-top:10px;
           }
-          .icon {
+          i {
             margin:10px 0 0 auto;
           }
         }
@@ -352,12 +356,13 @@
             vertical-align: top;
           }
         }
-        &__frame {
+        select {
           background-color: white;
           border: 1px solid gray;
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
+          width: 100%;
           padding: 5px 10px 5px 10px;
           display: flex;
           p {

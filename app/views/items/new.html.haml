@@ -66,26 +66,24 @@
           .burden__character
             %p 配送料の負担
             .form 必須
-          .burden__frame
-            %p ---
-            .icon
-              %i.fas.fa-chevron-down
-        .region
-          .region__character
-            %p 発送元の地域
-            .form 必須
-          .region__frame
-            %p ---
-            .icon
-              %i.fas.fa-chevron-down
+          = f.collection_select(:id,@postage,:id, :name, {prompt: "---"})
+          -# %i.fas.fa-chevron-down
+        = fields_for :region do |r|
+          .region
+            .region__character
+              %p 発送元の地域
+              .form 必須
+            = r.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"})
+            -# .icon
+            -#   %i.fas.fa-chevron-down
         .days
           .days__character
             %p 発送までの日数
             .form 必須
-          .days__frame
-            %p ---
-            .icon
-              %i.fas.fa-chevron-down
+          = f.select(:deliverdays,[["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]], {prompt: "---"})
+          -# %p ---
+          -# .icon
+          -#   %i.fas.fa-chevron-down
 
     .price
       .price__left

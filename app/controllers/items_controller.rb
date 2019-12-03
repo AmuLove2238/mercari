@@ -8,6 +8,9 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     # @item.build_shipment
-    # @item.build_brand
+    # @item.build_region
+    @postage=Postage.all.order("id ASC")
+    @days= Item.select("deliverdays")
+    # @days = Item.find(params[:deliverdays_id])
   end
 end
