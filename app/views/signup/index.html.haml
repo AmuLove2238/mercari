@@ -1,14 +1,21 @@
-.registration-main 
-  .registration-main__container
-    %h2.registration-main__container__header
+= render 'shared/signup-header'
+.signup-main 
+  .signup-main__container
+    %h2.signup-main__container__header
       新規会員登録
-    .registration-main__container__resistration-form
-      .registration-main__container__resistration-form__box
+    .signup-main__container__form
+      .signup-main__container__form__box
 
-        = link_to "新規会員登録", first_signup_page_signup_index_path
+        = link_to first_signup_page_signup_index_path, class: 'btn-mail' do
+          = fa_icon "envelope", class: 'btn-mail-icon'
+          メールアドレスで登録する
 
-        = link_to "Facebookで登録する"
+        = link_to "#", class: 'btn-default btn-fb' do
+          %i.fab.fa-facebook.icon-facebook.btn-fb-icon
+          Facebookで登録する
 
-        = link_to "Googleで登録する"
+        = link_to "#", class: 'btn-default btn-google' do
+          = image_tag "https://developers.google.com/identity/images/g-logo.png?hl=ja", width:"25px", height:"25px",class: 'btn-google-icon'
+          Googleで登録する
 
-        
+= render 'shared/signup-footer'

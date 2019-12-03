@@ -1,12 +1,17 @@
-.registration-main
-  .registration-main__container
-    %h2.registration-main__container__header
-      会員登録完了
-    .registration-form
-      .form-registration-inner
-        .form-group
-          %p.text-center ありがとうございます。</br>会員登録が完了しました
-        .form-group
-          %button.login-submit.btn-default.btn-red
-            メルカリをはじめる
-        
+.signup-complete-page
+  = render 'shared/signup-progress-header'
+
+  .signup-main 
+    .signup-main__container
+      %h2.signup-main__container__header
+        会員登録完了
+      .signup-main__container__form
+        .signup-main__container__form__box
+          .signup-inner
+            .form-group
+              %p.text-center-complete ありがとうございます。</br>会員登録が完了しました。
+            .form-group.color-f
+              = link_to root_path, class: 'login-submit btn-default btn-red' do
+                メルカリをはじめる
+
+  = render 'shared/signup-footer'

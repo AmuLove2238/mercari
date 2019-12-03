@@ -1,0 +1,26 @@
+.signup-progress-header
+  %h1
+    = link_to root_path do
+      = image_tag '/svg/fmarket_logo_red.svg'
+  %nav.progress-bar
+    %ul.progress-bar-box
+      %li.member#member
+        会員情報
+        .progress-status
+        .progress-status_bar
+      %li.phonenumber#phonenumber
+        電話番号認証
+        .progress-status
+        .progress-status_bar
+      %li.address#address
+        お届け先住所入力
+        .progress-status
+        .progress-status_bar
+      %li.payment#payment
+        支払い方法
+        .progress-status
+        .progress-status_bar
+      %li.complete#complete
+        完了
+        .progress-status
+        .progress-status_bar

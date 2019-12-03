@@ -1,0 +1,21 @@
+@mixin require-label(){
+  background: $color-red;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+}
+@mixin optional-label(){
+  background: #cccccc;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+}
+@mixin form-label(){
+  font-weight: 600;
+  display: inline-block;
+  font-size: 14px;
+}
