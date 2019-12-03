@@ -1,4 +1,4 @@
 class Region < ApplicationRecord
-  belong_to: item
-  belong_to: address
+  belongs_to: item
+  # belongs_to: address
 end

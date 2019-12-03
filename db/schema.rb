@@ -14,20 +14,26 @@ ActiveRecord::Schema.define(version: 20191202080349) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535, null: false
+    t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_categories_on_item_id", using: :btree
   end
 
   create_table "conditions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535, null: false
+    t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_conditions_on_item_id", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "images_url", limit: 65535, null: false
+    t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,20 +49,32 @@ ActiveRecord::Schema.define(version: 20191202080349) do
 
   create_table "postages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535, null: false
+    t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_postages_on_item_id", using: :btree
   end
 
   create_table "regions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535, null: false
+    t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_regions_on_item_id", using: :btree
   end
 
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "name",       limit: 65535, null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "name",        limit: 65535, null: false
+    t.integer  "category_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["category_id"], name: "index_sizes_on_category_id", using: :btree
   end
 
+  add_foreign_key "categories", "items"
+  add_foreign_key "conditions", "items"
+  add_foreign_key "images", "items"
+  add_foreign_key "postages", "items"
+  add_foreign_key "regions", "items"
+  add_foreign_key "sizes", "categories"
 end
