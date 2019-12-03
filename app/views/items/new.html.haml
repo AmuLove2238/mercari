@@ -1,0 +1,140 @@
+-# = render 'shared/registration-header'
+.headers
+  %h1
+    = link_to root_path do
+      = image_tag "/svg/fmarket_logo_red.svg"
+.main 
+  = form_for @item do |f|
+    .information
+      %p 商品の情報を入力
+    .stuff-image 
+      .stuff-image__character 
+        .stuff-image__character__2
+          %h1 出品画像
+          .form 必須
+        %h3 最大10枚までアップロードできます
+      .stuff-image__photo 
+        %p.stuff-image__photo__character
+          ドラックアンドドロップ
+          %br/
+          またはクリックファイルをアップロード
+
+    .stuff-name
+      .stuff-name__top
+        .stuff-name__top__character 
+          %h1 商品名
+          .form 必須
+        = f.text_field :name, placeholder: "例 ）商品名 (必須 40文字まで)" , autofocus: true, class: "stuff-name__top__frame"
+        -# = f.text_field :description, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです", autofocus: true, class: "stuff-name__description__frame"
+      .stuff-name__description
+        .stuff-name__description__character
+          %h1 商品の説明
+          .form 必須
+        = f.text_area :name, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
+        -# = f.text_field :name, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
+          -# %ul
+          -#   %li 商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)
+          -#   %li 2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわ
+          -#   %li せやすいのでおすすめです。
+
+    .stuff-details 
+      .details-left
+        %p 商品の詳細
+      .details-right
+        .category
+          .category__character
+            %p カテゴリー
+            .form 必須
+          .category__frame
+            %p ---
+            .icon
+              %i.fas.fa-chevron-down
+        .brand
+          .brand__character
+            %p 商品の状態
+            .form 必須   
+          .brand__frame
+            %p ---
+            .icon
+              %i.fas.fa-chevron-down
+        
+    .delivery
+      .delivery-left
+        %p 配送について
+
+      .delivery-right
+        .burden
+          .burden__character
+            %p 配送料の負担
+            .form 必須
+          .burden__frame
+            %p ---
+            .icon
+              %i.fas.fa-chevron-down
+        .region
+          .region__character
+            %p 発送元の地域
+            .form 必須
+          .region__frame
+            %p ---
+            .icon
+              %i.fas.fa-chevron-down
+        .days
+          .days__character
+            %p 発送までの日数
+            .form 必須
+          .days__frame
+            %p ---
+            .icon
+              %i.fas.fa-chevron-down
+
+    .price
+      .price__left
+        %p 販売価格(300~9,999,999)
+      .price__right
+        .price__right__top
+          .price__right__top__character
+            %p 価格
+            .form 必須
+          .price__right__top__2
+            .price__right__top__2__icon
+              %p ¥
+            .price__right__top__2__frame
+        .price__right__middle
+          .price__right__middle__character
+            %h1 販売手数料(10%)
+            %h2 -
+          .price__right__middle__icon
+        .price__right__bottom
+          .price__right__bottom__character
+            %h1 販売利益
+            %h2 -
+          .price__right__bottom__icon
+
+    .caution
+      .caution__top
+        %ul
+          %li 禁止されている、行為を必ずご確認ください。
+          %li またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であ
+          %li あり処罰される可能性があります。
+          %li また、出品をもちまして加盟店規約に同意したことになります。
+      .caution__middle
+        %p 出品する
+      .caution__bottom
+        %span もどる
+
+.footers
+  %nav{class:"sign-up-footer"}
+    %ul
+      %li
+        %a{ href: "#" }プライバシーポリシー
+      %li
+        %a{ href: "#" }メルカリ利用規約
+      %li
+        %a{ href: "#" }特定商取引に関する表記
+  %a{ href:"#", class:"footer-logo" }
+    = image_tag "/svg/logo_gray.svg"
+    -# %img{ src: “https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2177740229”, width: “80px”, height: “65px”}
+  %p
+    %small© 2019 Mercari
+
