@@ -1,0 +1,151 @@
+.signup-main{
+  &__container{
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    &__header{
+      font-size: 22px;
+      padding: 32px;
+      text-align: center;
+      margin: 0;
+      font-weight: bold;
+    }
+    &__form{
+      padding: 24px 16px 40px;
+      border-top: 1px solid #f5f5f5;
+      &__box{
+        max-width: 343px;
+        margin: 0 auto;
+        .signup-inner{
+          .login-submit{
+            @include btn-default;
+            @include btn-red;
+            width: 100%;
+            margin-top: 20px;
+          }
+          .link-text-right{
+            text-align: right;
+            margin-top: 20px;
+            a{
+              @include link-a;
+              font-size: 13px;
+            }
+          }
+          .form-group:first-child{
+            margin: 0;
+          }
+          .form-group.personal-top{
+            margin: 24px 0 0;
+          }
+          .form-group.color-f{
+            a{
+              color: #fff;
+            }
+          }
+          .form-group{
+            @include form-box;
+            label{
+              @include form-label;
+            }
+            .form-any{
+              @include optional-label;
+            }
+            .form-require{
+              @include require-label;
+            }
+            .input-default{
+              @include input-def;
+            }
+            input::placeholder {
+              color: lightgray;
+              font-size: 15px;
+            }
+            .half{
+              width: calc(50% - 10px);
+              margin-right: 5px;
+            }
+            .pass-info-text{
+              margin: 8px 0 0;
+              line-height: 1.5;
+              font-size: 13px;
+              color: #888;
+            }
+            .identification-hed{
+              font-size: 16px;
+              font-weight: bold;
+            }
+            .identification-text{
+              margin: 8px 0 0;
+              font-size: 14px;
+            }
+            .birthday-select-form{
+              select{
+                @include input-def;
+                width: 75px;
+              }
+            }
+            .prefectures-select-form{
+              select{
+                @include input-def;
+              }
+            }
+            .text-center{
+              font-size: 14px;
+              text-align: center;
+            }
+            .text-center-complete{
+              font-size: 17px;
+              text-align: center;
+              margin: 20px 0 40px;
+              letter-spacing: 2px;
+              font-weight: 500;
+            }
+            a{
+              @include link-a;
+            }
+          }
+        }
+        .btn-mail{
+          position: relative;
+          color: #fff;
+          background-color: $color-red;
+          @include btn-default;
+          .btn-mail-icon{
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            font-size: 25px;
+          }
+        }
+        .btn-fb{
+          position: relative;
+          margin: 16px 0 0;
+          background-color: #385185;
+          color: #fff;
+          @include btn-default;
+          .btn-fb-icon{
+            position: absolute;
+            padding: 0;
+            left: 15px;
+            top: 12px;
+            font-size: 25px;
+          }
+        }
+        .btn-google{
+          position: relative;
+          margin: 16px 0 0;
+          border: #979797 1px solid;
+          color: #333;
+          @include btn-default;
+          .btn-google-icon{
+            position: absolute;
+            left: 15px;
+            top: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
