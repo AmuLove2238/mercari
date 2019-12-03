@@ -48,14 +48,11 @@
             %p ---
             .icon
               %i.fas.fa-chevron-down
-        .brand
-          .brand__character
+        .condition
+          .condition__character
             %p 商品の状態
             .form 必須   
-          .brand__frame
-            %p ---
-            .icon
-              %i.fas.fa-chevron-down
+          = f.collection_select :id, @condition,:id,:name,prompt: "---"
         
     .delivery
       .delivery-left

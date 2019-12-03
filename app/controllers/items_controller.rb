@@ -9,5 +9,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     # @item.build_shipment
     # @item.build_brand
+
+    @condition = Condition.all.order("id ASC")
   end
 end
