@@ -77,9 +77,14 @@ gem 'font-awesome-rails'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'active_hash'
+
+# テスト用
 gem 'rspec-rails'
 gem 'factory_bot_rails'
+# sns認証用
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+
 gem 'payjp'
+gem 'dotenv-rails' 

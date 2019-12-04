@@ -10,8 +10,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :phonenumber
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
-  has_one :credit, dependent: :destroy
-  accepts_nested_attributes_for :credit
+  has_one :card, dependent: :destroy
+  accepts_nested_attributes_for :card
 
   #バリデーション
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -22,4 +22,3 @@ class User < ApplicationRecord
 
   
 end
-#, uniqueness: true

@@ -16,3 +16,4 @@
 # Ignore Byebug command history file.
 /config/secrets.yml
 .byebug_history
+/.env

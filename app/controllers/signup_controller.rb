@@ -43,12 +43,6 @@ class SignupController < ApplicationController
   end
 
 
-  # def credit_card クレジット用
-
-  #   @user = User.new
-  #   @user.build_credit
-  # end
-
   def create
     @user = User.new(session[:user_params])
     @user.build_personal(session[:birthday]) #誕生日 登録情報
@@ -57,8 +51,8 @@ class SignupController < ApplicationController
     @user.build_address(user_params[:address_attributes]) #address 登録情報
     
     if @user.save
-      session[:id] = @user.id
-      redirect_to complete_signup_signup_index_path
+      sign_in(@user)
+      redirect_to new_card_path
     else
       render :address
     end
