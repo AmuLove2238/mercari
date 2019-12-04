@@ -1,4 +1,3 @@
--# = render 'shared/registration-header'
 .headers
   %h1
     = link_to root_path do
@@ -30,11 +29,6 @@
           %h1 商品の説明
           .form 必須
         = f.text_area :name, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
-        -# = f.text_area :name, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
-          -# %ul
-          -#   %li 商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)
-          -#   %li 2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわ
-          -#   %li せやすいのでおすすめです。
 
     .stuff-details 
       .details-left
@@ -54,8 +48,6 @@
             .form 必須   
           .brand__frame
             %p ---
-            .icon
-              %i.fas.fa-chevron-down
         
     .delivery
       .delivery-left
@@ -73,17 +65,17 @@
             .region__character
               %p 発送元の地域
               .form 必須
-            = r.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"})
+            .region__frame
+              = r.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"})
             -# .icon
             -#   %i.fas.fa-chevron-down
         .days
           .days__character
             %p 発送までの日数
             .form 必須
-          = f.select(:deliverdays,[["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]], {prompt: "---"})
-          -# %p ---
-          -# .icon
-          -#   %i.fas.fa-chevron-down
+          .days__frame
+            = f.select(:deliverdays,[["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]], {prompt: "---"})
+            -# %i.fas.fa-chevron-down
 
     .price
       .price__left
@@ -96,17 +88,19 @@
           .price__right__top__2
             .price__right__top__2__icon
               %p ¥
-            .price__right__top__2__frame
+            %input#price_calc.price__right__top__2__frame{placeholder: "例) 300", type: "number"}/
+            -# = f.text_field :name, placeholder: "例) 300" , autofocus: true, class: "#price_calc.price__right__top__2__frame"
         .price__right__middle
-          .price__right__middle__character
-            %h1 販売手数料(10%)
-            %h2 -
-          .price__right__middle__icon
+          .price__right__middle__left
+            %p 販売手数料(10%)
+          .price__right__middle__right
+            -# %p -
         .price__right__bottom
-          .price__right__bottom__character
-            %h1 販売利益
-            %h2 -
-          .price__right__bottom__icon
+          .price__right__bottom__left
+            %p 販売利益
+          .price__right__bottom__right
+            -# %p -
+
 
     .caution
       .caution__top
