@@ -1,23 +1,40 @@
 -# = render 'shared/registration-header'
 .headers
   %h1
-    = link_to root_path do
-      = image_tag "/svg/fmarket_logo_red.svg"
-.main 
+    -# = link_to root_path do
+    -#   = image_tag "/svg/fmarket_logo_red.svg"
+.main
+  %h2.sell-form-header
+    %p 商品の情報を入力
   = form_for @item do |f|
-    .information
-      %p 商品の情報を入力
-    .stuff-image 
-      .stuff-image__character 
-        .stuff-image__character__2
-          %h1 出品画像
-          .form 必須
-        %h3 最大10枚までアップロードできます
-      .stuff-image__photo 
-        %p.stuff-image__photo__character
-          ドラックアンドドロップ
-          %br/
-          またはクリックファイルをアップロード
+    .sell-form-container 
+      %h3.sell-form-container__header
+        出品画像
+        %span.sell-form-container__header__require
+          必須
+      %p 最大10枚までアップロードできます
+      = f.fields_for :images do |i|
+        .dropzone-container
+          #preview
+          .dropzone-area
+            =i.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                %pre
+                  :preserve
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+                = i.file_field :image, multiple:true, type: "file" ,onchange: "previewFiles()", name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                %img{src:"",height:"200",alt:"Image preview",name:'preview0'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview1'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview2'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview3'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview4'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview5'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview6'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview7'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview8'}
+                %img{src:"",height:"200",alt:"Image preview",name:'preview9'}
+
 
     .stuff-name
       .stuff-name__top
@@ -30,11 +47,7 @@
           %h1 商品の説明
           .form 必須
         = f.text_area :name, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
-        -# = f.text_area :name, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
-          -# %ul
-          -#   %li 商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)
-          -#   %li 2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわ
-          -#   %li せやすいのでおすすめです。
+        
 
     .stuff-details 
       .details-left
@@ -129,7 +142,7 @@
       %li
         %a{ href: "#" }特定商取引に関する表記
   %a{ href:"#", class:"footer-logo" }
-    = image_tag "/svg/logo_gray.svg"
+    -# = image_tag "/svg/logo_gray.svg"
     -# %img{ src: “https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2177740229”, width: “80px”, height: “65px”}
   %p
     %small© 2019 Mercari

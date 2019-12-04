@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'images/new'
+
   root to: 'home#index'
-  resources :items, only: [:index, :show, :new]
+  resources :items do
+    resources :images
+  end
 end

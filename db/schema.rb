@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191202080349) do
+ActiveRecord::Schema.define(version: 20191204043947) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "address_family_name_kanji", null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20191202080349) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "images_url", limit: 65535, null: false
+    t.text     "image",      limit: 65535
     t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

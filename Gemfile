@@ -64,6 +64,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
+gem 'paperclip'
 gem 'carrierwave'
 gem 'mini_magick'
 
