@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
-
   get 'exhibit/index'=>"exhibit#index"
   resources :items, only: [:index, :show]
 
@@ -23,5 +22,12 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
-  
+
+  resources :user do [:show]
+    collection do
+      get 'mypage'
+      get 'profile'
+    end
+  end
+
 end
