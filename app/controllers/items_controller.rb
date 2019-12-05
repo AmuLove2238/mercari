@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # Item.create(item_params)
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.save
@@ -30,7 +31,6 @@ class ItemsController < ApplicationController
       end
     end
   end
-
   private
   def item_params
     params.require(:item).permit(
@@ -46,6 +46,8 @@ class ItemsController < ApplicationController
       :lead_time, 
       :price, 
       :transaction_status, 
+      :handing,
+      :profit,
       images_attributes: [:image]
     ).merge(user_id: current_user.id)
   end
