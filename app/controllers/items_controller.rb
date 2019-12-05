@@ -11,13 +11,14 @@ class ItemsController < ApplicationController
     # @item.build_brand
     @item.images.build
     # @postage=Postage.all.order("id ASC")
-    @days= Item.select("deliverdays")
+    @item.regions.build
 
     # @condition = Condition.all.order("id ASC")
   end
 
   def create
     Item.create(item_params)
+
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.save
@@ -36,21 +37,21 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(
       :name, 
-      :description, 
+      :detail, 
+      :deliverdays, 
+      :price, 
+      # :handing,
+      :profit,
+      :condition, 
       # :first_category_id, 
       # :second_category_id, 
       # :third_category_id, 
-      :size, 
-      :product_status, 
-      :delivery_fee, 
-      :prefecture_id, 
-      :lead_time, 
-      :price, 
-      :transaction_status, 
-      :handing,
-      :profit,
-      images_attributes: [:image]
-    ).merge(user_id: current_user.id)
+      # :size, 
+      :postage, 
+      images_attributes: [:image],
+      regions_attributes: [:name]
+    )
+    # .merge(user_id: current_user.id)
   end
 
 end

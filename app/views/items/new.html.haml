@@ -45,7 +45,7 @@
         .stuff-name__description__character
           %h1 商品の説明
           .form 必須
-        = f.text_area :name, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
+        = f.text_area :detail, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
 
     .stuff-details 
       .details-left
@@ -76,9 +76,9 @@
             %p 配送料の負担
             .form 必須
           -# = f.collection_select(:id,@postage,:id, :name, {prompt: "---"})
-          = f.select(:postages,[["送料込み(出品者負担)",1],["着払い購入者負担",2]], {prompt: "---"})
+          = f.select(:postage,[["送料込み(出品者負担)",1],["着払い購入者負担",2]], {prompt: "---"})
           -# %i.fas.fa-chevron-down
-        = fields_for :region do |r|
+        = fields_for :regions do |r|
           .region
             .region__character
               %p 発送元の地域

@@ -6,8 +6,9 @@ class Item < ApplicationRecord
   # has_many :comments
   # has_many :categories
   # has_many :conditions
-  has_many :postages
+  # has_many :postages
   has_many :regions
+  accepts_nested_attributes_for :regions
   # has_many :likes
   # has_many :comments
   # accepts_nested_attributes_for :region

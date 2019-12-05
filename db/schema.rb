@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191205072838) do
+ActiveRecord::Schema.define(version: 20191205083106) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "address_family_name_kanji", null: false
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20191205072838) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "condition",                 null: false
+    t.string   "postage",                   null: false
   end
 
   create_table "personals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -97,14 +98,6 @@ ActiveRecord::Schema.define(version: 20191205072838) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_phonenumbers_on_user_id", using: :btree
-  end
-
-  create_table "postages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "name",       limit: 65535, null: false
-    t.integer  "item_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.index ["item_id"], name: "index_postages_on_item_id", using: :btree
   end
 
   create_table "regions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -152,7 +145,6 @@ ActiveRecord::Schema.define(version: 20191205072838) do
   add_foreign_key "images", "items"
   add_foreign_key "personals", "users"
   add_foreign_key "phonenumbers", "users"
-  add_foreign_key "postages", "items"
   add_foreign_key "regions", "items"
   add_foreign_key "sizes", "categories"
   add_foreign_key "sns_credentials", "users"
