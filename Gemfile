@@ -88,3 +88,4 @@ gem 'omniauth-facebook'
 
 gem 'payjp'
 gem 'dotenv-rails' 
+gem 'gretel'
