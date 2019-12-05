@@ -15,10 +15,8 @@ class ItemsController < ApplicationController
 
     # @condition = Condition.all.order("id ASC")
   end
-
+  
   def create
-    Item.create(item_params)
-
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.save

@@ -107,7 +107,7 @@
             .price__right__top__2__icon
               %p ¥
             %input#price_calc.price__right__top__2__frame{placeholder: "例) 300", type: "number"}/
-            -# = f.text_field :name, placeholder: "例) 300" , autofocus: true, class: "#price_calc.price__right__top__2__frame"
+            -# = f.text_field :name, placeholder: "例) 300" , autofocus: true, id: "price_calc.price__right__top__2__frame",type: "number"
         .price__right__middle
           .price__right__middle__left
             %p 販売手数料(10%)
@@ -116,6 +116,7 @@
         .price__right__bottom
           .price__right__bottom__left
             %p 販売利益
+          = f.number_field :price, style: "display: none", id: "price"
           .price__right__bottom__right
             -# %p -
 
