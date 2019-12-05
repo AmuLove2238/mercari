@@ -10,10 +10,10 @@ class ItemsController < ApplicationController
     # @item.build_shipment
     # @item.build_brand
     @item.images.build
-    @postage=Postage.all.order("id ASC")
+    # @postage=Postage.all.order("id ASC")
     @days= Item.select("deliverdays")
 
-    @condition = Condition.all.order("id ASC")
+    # @condition = Condition.all.order("id ASC")
   end
 
   def create
