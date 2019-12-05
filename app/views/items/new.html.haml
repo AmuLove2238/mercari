@@ -127,10 +127,8 @@
           %li またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であ
           %li あり処罰される可能性があります。
           %li また、出品をもちまして加盟店規約に同意したことになります。
-      .caution__middle
-        %p 出品する
-      .caution__bottom
-        %span もどる
+      = f.submit "出品する",class: "caution__middle"
+      = f.submit "もどる",class:"caution__bottom"
 
 .footers
   %nav{class:"sign-up-footer"}
@@ -142,7 +140,7 @@
       %li
         %a{ href: "#" }特定商取引に関する表記
   %a{ href:"#", class:"footer-logo" }
-    -# = image_tag "/svg/logo_gray.svg"
+    = image_tag "/svg/logo_gray.svg"
     -# %img{ src: “https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2177740229”, width: “80px”, height: “65px”}
   %p
     %small© 2019 Mercari
