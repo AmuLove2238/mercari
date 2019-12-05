@@ -13,4 +13,15 @@ class ItemsController < ApplicationController
     @days= Item.select("deliverdays")
     # @days = Item.find(params[:deliverdays_id])
   end
+
+  def create
+    Item.create(item_params)
+  end
+
+  private
+  def item_params
+    params.permit(:name, :detail, :deliverdays, :price, :handing, :profit)
+  end
 end
+
+
