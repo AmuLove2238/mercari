@@ -128,7 +128,7 @@
           %li またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であ
           %li あり処罰される可能性があります。
           %li また、出品をもちまして加盟店規約に同意したことになります。
-      = f.submit "出品する",class: "caution__middle"
+      = f.submit "出品する",class: "caution__middle",id:"selling-complete-show"
       = f.submit "もどる",class:"caution__bottom"
 
 .footers
@@ -146,3 +146,4 @@
   %p
     %small© 2019 Mercari
 
+= render 'selling-complete-modal'

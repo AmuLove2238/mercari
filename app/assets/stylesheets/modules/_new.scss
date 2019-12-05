@@ -71,7 +71,7 @@ select {
         font-size: 12px;
         font-weight: bold;
         margin-left: 5px;
-        background-color: red;
+        background-color: #EA352D;
         color: white;
         padding: 2px;
         vertical-align: top;
@@ -121,7 +121,7 @@ select {
           font-size: 12px;
           font-weight: bold;
           margin-left: 5px;
-          background-color: red;
+          background-color: #EA352D;
           color: white;
           padding: 2px;
           vertical-align: top;
@@ -131,7 +131,7 @@ select {
         background-color: white;
         height: 60px;
         width: 100%;
-        border: 1px solid gray;
+        border: 1px solid #ccc;
         border-radius: 10px;
         margin-top: 10px;
         font-size: 16px;
@@ -152,14 +152,14 @@ select {
           font-size: 12px;
           font-weight: bold;
           margin-left: 5px;
-          background-color: red;
+          background-color: #EA352D;
           color: white;
           padding: 2px;
           vertical-align: top;
         }
       }
       &__frame {
-        border: 1px solid gray;
+        border: 1px solid #ccc;
         border-radius: 10px;
         margin-top: 10px;
         padding: 10px 10px 10px 10px;
@@ -196,7 +196,7 @@ select {
           font-size: 12px;
           font-weight: bold;
           margin-left: 5px;
-          background-color: red;
+          background-color: #EA352D;
           color: white;
           padding: 2px;
           vertical-align: top;
@@ -204,7 +204,7 @@ select {
         }
         &__frame {
           background-color: white;
-          border: 1px solid gray;
+          border: 1px solid #ccc;
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
@@ -236,7 +236,7 @@ select {
             font-size: 12px;
             font-weight: bold;
             margin-left: 5px;
-            background-color: red;
+            background-color: #EA352D;
             color: white;
             padding: 2px;
             vertical-align: top;
@@ -272,7 +272,7 @@ select {
             font-size: 12px;
             font-weight: bold;
             margin-left: 5px;
-            background-color: red;
+            background-color: #EA352D;
             color: white;
             padding: 2px;
             vertical-align: top;
@@ -280,7 +280,7 @@ select {
         }
         select {
           background-color: white;
-          border: 1px solid gray;
+          border: 1px solid #ccc;
           border-radius: 5px;
           margin-top: 10px;
           height: 45px;
@@ -309,7 +309,7 @@ select {
             font-size: 12px;
             font-weight: bold;
             margin-left: 5px;
-            background-color: red;
+            background-color: #EA352D;
             color: white;
             padding: 2px;
             vertical-align: top;
@@ -318,7 +318,7 @@ select {
         &__frame {
           select {
             background-color: white;
-            border: 1px solid gray;
+            border: 1px solid #ccc;
             border-radius: 5px;
             margin-top: 10px;
             height: 45px;
@@ -347,7 +347,7 @@ select {
             font-size: 12px;
             font-weight: bold;
             margin-left: 5px;
-            background-color: red;
+            background-color: #EA352D;
             color: white;
             padding: 2px;
             vertical-align: top;
@@ -358,7 +358,7 @@ select {
           // display: flex;
           select {
             background-color: white;
-            border: 1px solid gray;
+            border: 1px solid #ccc;
             border-radius: 5px;
             margin-top: 10px;
             height: 45px;
@@ -405,7 +405,7 @@ select {
             font-size: 12px;
             font-weight: bold;
             margin-left: 5px;
-            background-color: red;
+            background-color: #EA352D;
             color: white;
             padding: 2px;
             // vertical-align: top;
@@ -431,7 +431,7 @@ select {
           &__frame {
             // background-color: aliceblue;
             width: 150px;
-            border: 1px solid gray;
+            border: 1px solid #ccc;
             border-radius: 5px;
             height: 45px;
             margin: 0 0 0 auto;
@@ -501,32 +501,33 @@ select {
     // height: 30%;
     background-color: white;
     padding: 20px;
-    position: relative;
+    width: 100%;
     &__top {
       font-size: 15px;
       margin-bottom: 20px;
     }
     &__middle {
-      background-color: red;
+      display: block;
+      background-color: #EA352D;
       // height: 45px;
-      width: 660px;
+      width: 640px;
       margin-bottom: 20px;
       color: white;
       line-height: 45px;
+      margin: 20px auto;
     }
     &__bottom {
-      background-color: gray;
-      width: 200px;
-      margin-top: 20px;
+      display: block;
+      background-color: #aaa;
+      width: 300px;
+      margin: 0 auto;
       color: white;
-      text-align: center;
       line-height: 45px;
-      display: inline-block;
+    
       
       // margin: auto 0 0 0;
       // span {
       //   width: 50px;
-        display: inline-block;
       //   color: white;
       //   line-height: 45px;
       //   text-align: center;
