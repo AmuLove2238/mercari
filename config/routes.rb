@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
+
   get 'exhibit/index'=>"exhibit#index"
   resources :items, only: [:index, :show]
 
@@ -11,6 +12,15 @@ Rails.application.routes.draw do
       post 'sms_confirmation'  #電話番号登録
       post 'address'  #送付先登録
       get 'complete_signup'  #登録完了後
+    end
+  end
+
+  resources :card, only: [:new, :show, :create] do
+    collection do
+      post 'card',  to: 'card#new'
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
     end
   end
   

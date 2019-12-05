@@ -25,7 +25,10 @@
           }
           .link-text-right{
             text-align: right;
-            margin-top: 20px;
+            margin-top: 10px;
+            .hatena{
+              @include blue-hatena;
+            }
             a{
               @include link-a;
               font-size: 13px;
@@ -63,6 +66,21 @@
             .half{
               width: calc(50% - 10px);
               margin-right: 5px;
+            }
+            .card-exp{
+              width: calc(50% - 35px);
+              margin-right: 8px;
+            }
+            .card-brand-list{
+              margin: 8px 0 0;
+              li{
+                display: inline-block;
+                img{
+                  height: 27px;
+                  width: 38px;
+                  margin-left: 5px;
+                }
+              }
             }
             .pass-info-text{
               margin: 8px 0 0;
