@@ -513,26 +513,16 @@ select {
       margin-bottom: 20px;
       color: white;
       line-height: 45px;
-      // &__rrr {
-      //   color: white;
-      //   // text-align: center;
-      //   // line-height: 45px;
-      //   // margin: 0 auto;
-      //   display: flex;
-      //   justify-content: center; /*左右中央揃え*/
-      //   align-items: center;     /*上下中央揃え*/
-      //   line-height: 45px;
-      // }
     }
     &__bottom {
       background-color: gray;
       width: 200px;
       margin-top: 20px;
-      // margin-top: 20px;
       color: white;
       text-align: center;
       line-height: 45px;
       display: inline-block;
+      
       // margin: auto 0 0 0;
       // span {
       //   width: 50px;
