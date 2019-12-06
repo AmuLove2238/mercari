@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'home#index'
 
+  resources :items do
+    resources :images
+  end
+  
+  devise_for :users
+  
+
   get 'exhibit/index'=>"exhibit#index"
+
   resources :items, only: [:index, :show]
 
   resources :signup, only: [:index,:create] do

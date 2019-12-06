@@ -4,4 +4,51 @@ class ItemsController < ApplicationController
   
   def show
   end
+
+  def new
+    @item = Item.new
+    # ↓後ほど機能追加
+    # @item.build_shipment
+    # @item.build_brand
+    @item.images.build
+    @item.regions.build
+  end
+  
+  def create
+    @item = Item.new(item_params)
+    respond_to do |format|
+      if @item.save
+          params[:images]['image'].each do |image|
+            @item.images.create(image: image, item_id: @item.id)
+          end
+        format.html{redirect_to root_path}
+      else
+        @item.images.build
+        format.html{render action: 'new'}
+      end
+    end
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(
+      :name, 
+      :detail, 
+      :deliverdays, 
+      :price, 
+      # ↓後ほど機能追加のためコメントアウト
+      # :handing,
+      :profit,
+      :condition, 
+      # :first_category_id, 
+      # :second_category_id, 
+      # :third_category_id, 
+      # :size, 
+      :postage, 
+      images_attributes: [:image],
+      regions_attributes: [:name]
+    )
+    # .merge(user_id: current_user.id)
+  end
+
 end
