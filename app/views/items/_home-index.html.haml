@@ -1,0 +1,56 @@
+- @items.each do |item|
+  = link_to '/items/show',class:"items-box" do
+    .items-image
+      =image_tag item.images[0].image
+      %span
+        ¥
+        = converting_to_jpy(item.price) #ヘルパーメソッド使用し区切りカンマを表示
+    .items-body
+      .items-body__name
+        = item.name
+
+-# = link_to '',class:"items-box" do
+-#   .items-image
+-#     %img{src:"/img/test-fashion_sagyougi.png"}/
+-#     %span
+-#       ¥8,000
+-#   .items-body
+-#     .items-body__name
+-#       作業着
+
+-# = link_to '',class:"items-box" do
+-#   .items-image
+-#     %img{src:"/img/test-watch_face_arm_smartwatch.png"}/
+-#     %span
+-#       ¥50,000
+-#   .items-body
+-#     .items-body__name
+-#       アップルウォッチ
+
+-# = link_to '',class:"items-box" do
+-#   .items-image
+-#     %img{src:"/img/test-smartphone_prepaid_card_black.png"}/
+-#     %span
+-#       ¥100
+-#   .items-body
+-#     .items-body__name
+-#       itunesカード１万円分
+
+-# = link_to '',class:"items-box" do
+-#   .items-image
+-#     %img{src:"/img/test-biyou_ubugesori_higesori_dendou.png"}/
+-#     %span
+-#       ¥999,000
+-#   .items-body
+-#     .items-body__name
+-#       眉毛カッター
+
+-# = link_to '',class:"items-box" do
+-#   .items-image
+-#     %img{src:"/img/test-dj_table.png"}/
+-#     %span
+-#       ¥50
+-#   .items-body
+-#     .items-body__name
+-#       djブース
+    

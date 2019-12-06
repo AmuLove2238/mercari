@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.order("id DESC").limit(10)
   end
   
   def show
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
       end
     end
   end
+
 
   private
   def item_params
