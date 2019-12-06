@@ -1,4 +1,3 @@
-// heightは仮置き
 li{
   list-style: none;
 }
@@ -48,6 +47,20 @@ li{
       }
       td{
         width: 61%;
+        span{
+          color:black;
+          font-weight: normal;
+          margin-right: 10px;
+        }
+        .fa-smile{
+          color:#fa2c93;
+        }
+        .fa-meh{
+          color:#f5ab0c;
+        }
+        .fa-frown{
+          color:#2088ff;
+        }
       }
     }
   }
@@ -203,8 +216,8 @@ li{
   margin: 0 auto;
   &__contents{
     height: auto;
+    width: 100%;
     &__box{
-      height: auto;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -224,9 +237,15 @@ li{
         }
 
         .items-body{
-          
+          margin: 16px;
+          font-size:16px;
           &__name{
             
+          }
+          &__price{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
           }
         }
       }

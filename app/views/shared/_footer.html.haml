@@ -7,12 +7,12 @@
           %h1 スマホでかんたんフリマアプリ
           %p 今すぐ無料ダウンロード！
         .top-item__left__footer_icons
-          %img.mercari-logo{src:"/img/mercari.png"}/
+          %img.mercari-logo{src:"/svg/logo_white.svg"}/
           %img.applestore{src:"/img/AppStoreimg.svg"}/
           %img.googleplaystore{src:"/img/google-play-img.svg"}/
       .top-item__right
         %img.phone-logo{src:"/img/iphone.png"}/
-  .main
+  .footer-main
     .list
       .list__about
         %h3 メルカリについて
@@ -54,5 +54,6 @@
           %li 日本
           %li United States
     .bottom
-      %img.mercari_gray{src:"/img/mercari_gray.svg"}/
+      = link_to "/"  do
+        %img.mercari_gray{src:"/img/mercari_gray.svg"}/
       %p © 2019 Mercari
