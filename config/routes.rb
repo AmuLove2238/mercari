@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  # get 'images/new'
 
   resources :items do
     resources :images

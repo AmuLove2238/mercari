@@ -7,13 +7,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    # ↓後ほど機能追加
     # @item.build_shipment
     # @item.build_brand
     @item.images.build
-    # @postage=Postage.all.order("id ASC")
     @item.regions.build
-
-    # @condition = Condition.all.order("id ASC")
   end
   
   def create
@@ -38,6 +36,7 @@ class ItemsController < ApplicationController
       :detail, 
       :deliverdays, 
       :price, 
+      # ↓後ほど機能追加のためコメントアウト
       # :handing,
       :profit,
       :condition, 

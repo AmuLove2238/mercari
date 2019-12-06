@@ -23,17 +23,16 @@
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
                 = i.file_field :image, multiple:true, type: "file" ,onchange: "previewFiles()", name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                %img{src:"",height:"200",alt:"Image preview",name:'preview0'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview1'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview2'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview3'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview4'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview5'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview6'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview7'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview8'}
-                %img{src:"",height:"200",alt:"Image preview",name:'preview9'}
-
+                = image_tag "",height:"150",alt:"Image preview",name:'preview0'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview1'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview2'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview3'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview4'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview5'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview6'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview7'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview8'
+                = image_tag "",height:"150",alt:"Image preview",name:'preview9'
 
     .stuff-name
       .stuff-name__top
@@ -63,7 +62,6 @@
           .condition__character
             %p 商品の状態
             .form 必須   
-          -# = f.collection_select :id, @condition,:id,:name,prompt: "---"
           = f.select(:condition,[["新品、未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {prompt: "---"})
         
     .delivery
@@ -75,9 +73,7 @@
           .burden__character
             %p 配送料の負担
             .form 必須
-          -# = f.collection_select(:id,@postage,:id, :name, {prompt: "---"})
           = f.select(:postage,[["送料込み(出品者負担)",1],["着払い購入者負担",2]], {prompt: "---"})
-          -# %i.fas.fa-chevron-down
         = fields_for :regions do |r|
           .region
             .region__character
@@ -85,15 +81,13 @@
               .form 必須
             .region__frame
               = r.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"})
-            -# .icon
-            -#   %i.fas.fa-chevron-down
+
         .days
           .days__character
             %p 発送までの日数
             .form 必須
           .days__frame
             = f.select(:deliverdays,[["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]], {prompt: "---"})
-            -# %i.fas.fa-chevron-down
 
     .price
       .price__left
@@ -107,18 +101,17 @@
             .price__right__top__2__icon
               %p ¥
             %input#price_calc.price__right__top__2__frame{placeholder: "例) 300", type: "number"}/
-            -# = f.text_field :name, placeholder: "例) 300" , autofocus: true, id: "price_calc.price__right__top__2__frame",type: "number"
         .price__right__middle
           .price__right__middle__left
             %p 販売手数料(10%)
           .price__right__middle__right
-            -# %p -
+            
         .price__right__bottom
           .price__right__bottom__left
             %p 販売利益
           = f.number_field :price, style: "display: none", id: "price"
           .price__right__bottom__right
-            -# %p -
+            
 
 
     .caution
@@ -135,14 +128,16 @@
   %nav{class:"sign-up-footer"}
     %ul
       %li
-        %a{ href: "#" }プライバシーポリシー
+        = link_to href: "#" do
+          プライバシーポリシー
       %li
-        %a{ href: "#" }メルカリ利用規約
+        = link_to href: "#" do
+          メルカリ利用規約
       %li
-        %a{ href: "#" }特定商取引に関する表記
-  %a{ href:"#", class:"footer-logo" }
+        = link_to href: "#" do
+          特定商取引に関する表記
+  =link_to href:"#", class:"footer-logo" do
     = image_tag "/svg/logo_gray.svg"
-    -# %img{ src: “https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2177740229”, width: “80px”, height: “65px”}
   %p
     %small© 2019 Mercari
 
