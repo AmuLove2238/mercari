@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @item = Item.find_by(id:params[:id])
   end
 
   def new
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
         format.html{render action: 'new'}
       end
     end
+
   end
 
 
@@ -37,7 +39,8 @@ class ItemsController < ApplicationController
       :name, 
       :detail, 
       :deliverdays, 
-      :price, 
+      :price,
+      :prefecture_id,
       # ↓後ほど機能追加のためコメントアウト
       # :handing,
       :profit,

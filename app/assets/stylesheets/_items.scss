@@ -15,6 +15,7 @@ li{
     font-size:24px;
     text-align: center;
     line-height: 1.4;
+    font-weight: bold;
   }
   .item-main{
     display: flex;
@@ -91,7 +92,7 @@ li{
   }
 
   .item-description{
-    text-align: center;
+    margin-left: 50px;
   }
 
   .item-button-box{
