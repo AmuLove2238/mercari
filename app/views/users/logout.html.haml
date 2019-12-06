@@ -1,10 +1,14 @@
-= render "shared/header"
-
-.container
-  %form.inner-right{:action => "https://www.mercari.com/jp/logout/", :method => "post", :novalidate => "novalidate"}
-    = render "mypages/sidebar"
-
-    .inner-right--content
-      %button.btn-red{:type => "submit"}ログアウト
+= render 'shared/header', header: @header
+= link_to exhibit_index_path, class: "cam-icon" do
+  %p 出品
+  %i.fas.fa-camera.fa-4x
+  
+.mypage-container
+  = render 'shared/mypage-side'
+  
+  .mypage-content
+    .logout-form
+      = link_to destroy_user_session_path, method: :delete, class: 'btn-red' do
+        ログアウト
 
 = render "shared/footer"

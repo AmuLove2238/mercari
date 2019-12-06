@@ -30,10 +30,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user do [:show]
+  resources :users do [:show]
     collection do
       get 'mypage'
-      get 'profile'
+      get 'logout'
     end
   end
 
