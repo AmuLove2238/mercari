@@ -100,6 +100,7 @@
               select{
                 @include input-def;
                 width: 75px;
+                display: inline-block;
               }
             }
             .prefectures-select-form{

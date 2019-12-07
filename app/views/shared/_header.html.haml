@@ -33,14 +33,14 @@
               マイページ
             %li
               = link_to destroy_user_session_path, method: :delete, class: 'btn-red' do
-                ログアウト
+                ﾛｸﾞｱｳﾄかり
         - else
           %ul
             %li
-              = link_to first_signup_page_signup_index_path, class: 'header-registration-btn' do
+              = link_to  signup_index_path, class: 'header-registration-btn' do
                 新規会員登録
             %li
-              = link_to first_signup_page_signup_index_path, class: 'header-login-btn' do
+              = link_to new_user_session_path, class: 'header-login-btn' do
                 ログイン
            
 

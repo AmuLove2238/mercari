@@ -3,14 +3,12 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-
-
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '6c4e36578045e7ec7eed61e697253240378c24a2320d9dc3ed3df3992057ff449f79f076fda9e9bbba4e8a2cf0ad852b546f3df713f9f60330bb49b33cf3a681'
+  # config.secret_key = '2c3aaa092ddb9e5c8b44bfaf436deb32535eff9912c5c2941c916556fa22d0c71399a536a235f8e54de4f3ad0e661eb22470bbcf03d673b73a0359261ff29454'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -116,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '26a361b9593a287e216e01b2dca35e08755e4903cce37b873a7175f36dee075504b5a90d52b0714b57fb34c9393f9a8c3693209d459656dbbd15d06ccbe0de63'
+  # config.pepper = '283083eff0048ef4694fbf9dca7cfb3b6f0cd2f530262a5e34c70a9e402f8b23fa52f9f8a4b8cbbafe794e5236a6c8958b89595c94f3c7e947097b9d7952c254'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
