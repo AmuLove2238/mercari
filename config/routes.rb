@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     resources :images
   end
   
-  devise_for :users
+  devise_for :users, controllers: {
+  confirmations: 'users/confirmations',
+  passwords:     'users/passwords',
+  registrations: 'users/registrations',
+  sessions:      'users/sessions',
+}
   
 
   get 'exhibit/index'=>"exhibit#index"
@@ -33,6 +38,7 @@ Rails.application.routes.draw do
   resources :users do [:show]
     collection do
       get 'mypage'
+      get 'profile'
       get 'logout'
     end
   end
