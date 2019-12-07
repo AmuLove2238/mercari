@@ -52,7 +52,7 @@ class SignupController < ApplicationController
     
     if @user.save
       sign_in(@user)
-      redirect_to new_card_path
+      redirect_to credit_card_signup_index_path
     else
       render :address
     end

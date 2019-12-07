@@ -17,29 +17,30 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
 
-  resources :signup, only: [:index,:create] do
+  resources :signup, only: [:index, :create] do
     collection do
-      get 'first_signup_page'   #最初の登録ページ
-      post 'sms_confirmation'  #電話番号登録
-      post 'address'  #送付先登録
-      get 'complete_signup'  #登録完了後
+      get 'first_signup_page'     #最初の登録ページ
+      post 'sms_confirmation'     #電話番号登録ページ
+      post 'address'              #住所先登録ページ
+      get 'credit_card'           #クレジットカード登録ページ
+      get 'complete_signup'       #登録完了ページ
     end
   end
 
-  resources :card, only: [:new, :show, :create] do
+  resources :card, only: [:index, :new, :show, :create] do
     collection do
-      post 'card',  to: 'card#new'
       post 'show', to: 'card#show'
+      post 'pay_registration', to: 'card#pay_registration'
       post 'pay', to: 'card#pay'
-      post 'delete', to: 'card#delete'
+      delete 'delete', to: 'card#delete'
     end
   end
 
-  resources :users do [:show]
+  resources :mypage do [:index]
     collection do
-      get 'mypage'
-      get 'profile'
-      get 'logout'
+      get 'information'     #本人情報 後で追加
+      get 'profile'         #プロフィール
+      get 'logout'          #ログアウト
     end
   end
 

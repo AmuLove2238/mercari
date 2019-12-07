@@ -1,0 +1,67 @@
+.mypage-content{
+  &__head{
+    padding: 0 24px;
+    font-size: 24px;
+    border-bottom: 1px solid #eee;
+  }
+  &__inner{
+    padding: 64px;
+    .credit-card-info{
+      padding: 24px 64px;
+      border-bottom:  1px solid #eee;
+      &__box{
+        margin: 0 auto;
+        max-width: 320px;
+        position: relative;
+        ul{
+          li{
+
+          }
+        }
+      }
+      a{
+        position: absolute;
+        right: 10px;
+        top: 0;
+        text-decoration: none;
+        padding: 0 5px;
+        color: $color-red;
+        border: 1px solid $color-red;
+        border-radius: 6%;
+        font-size: 14px;
+      }
+    }
+    .add-card-btn-apper{
+      width: 320px;
+      margin: 0 auto;
+      h3{
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .add-card-btn-box{
+      padding: 24px 64px;
+      border-bottom:  1px solid #eee;
+      .btn-red{
+        @include btn-default;
+        @include btn-red;
+        max-width: 320px;
+        margin: 0 auto;
+        .credit-card-icon{
+          margin-right: 10px;
+        }
+      }
+    }
+    .add-card-btn-lower{
+      margin-top: 40px;
+      .link-text-right{
+        text-align: right;
+        a{
+          @include link-a;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+}
