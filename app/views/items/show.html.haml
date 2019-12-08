@@ -3,11 +3,18 @@
   .item-name
     %h1
       = @item.name
-  .item-main
+  .item-main.clearfix
     .item-photo
       .item-photo__main
-        =image_tag @item.images[0].image
-      .item-photo__sub
+        %ul.slider
+          - @item.images.each do |image|
+            %li
+              = image_tag image.image
+      -# .item-photo__sub
+      -#   %ul.slider-list
+      -#     - @item.images.each do |image|
+      -#       %li
+      -#         = image_tag image.image, {class: "active"}
     %table.item-detail-table
       %tr
         %th 出品者
@@ -41,8 +48,9 @@
         %td ゆうゆうメルカリ便
       %tr
         %th 配送元地域
-        %td 
-          = @item.prefecture.name
+        %td
+          = link_to '#',class:"region" do
+            = @item.prefecture.name
       %tr
         %th 配送日の目安
         %td 
@@ -59,8 +67,7 @@
       購入画面に進む
 
   .item-description
-    %p
-      =@item.detail
+    = simple_format(@item.detail)
   .item-button-box
     .right-button
       .right-button--like
