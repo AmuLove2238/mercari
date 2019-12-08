@@ -1,37 +1,11 @@
-= link_to '',class:"items-box" do
-  -#clearfix?
-  %img{src:"/img/food_ebi_fry.png"}/
-  .items-body
-    .items-body__name
-      エビフライ
-    .items-body__price
-      %p ¥6,000
-      %i.far.fa-heart.fa-1x
-= link_to '',class:"items-box" do
-  -#clearfix?
-  %img{src:"/img/food_ebi_fry.png"}/
-  .items-body
-    .items-body__name
-      エビフライ
-    .items-body__price
-      %p ¥6,000
-      %i.far.fa-heart.fa-1x
-= link_to '',class:"items-box" do
-  -#clearfix?
-  %img{src:"/img/food_ebi_fry.png"}/
-  .items-body
-    .items-body__name
-      エビフライ
-    .items-body__price
-      %p ¥6,000
-      %i.far.fa-heart.fa-1x
-= link_to '',class:"items-box" do
-  -#clearfix?
-  %img{src:"/img/food_ebi_fry.png"}/
-  .items-body
-    .items-body__name
-      エビフライ
-    .items-body__price
-      %p ¥6,000
-      %i.far.fa-heart.fa-1x 
-      -# いいね機能
+-@related_items.each do |related_item| 
+  = link_to "/items/#{related_item.id}",class:"items-box" do
+    -#clearfix?
+    =image_tag related_item.images[0].image.url
+    .items-body
+      .items-body__name
+        = related_item.name
+      .items-body__price
+        ¥
+        = related_item.price
+        %i.far.fa-heart.fa-1x

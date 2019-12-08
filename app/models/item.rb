@@ -8,6 +8,16 @@ class Item < ApplicationRecord
   # has_many :likes
   has_many :regions
   accepts_nested_attributes_for :regions
+
+  def previous
+    Item.where("id < ?",id).order("id DESC").first
+  end
+
+  def next
+    Item.where("id > ?", id).order("id ASC").first
+  end
+
+
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture

@@ -92,12 +92,14 @@
 
 .nav-item
   %ul
-    =link_to "#",class:"prev" do
-      %span.fas.fa-angle-left
-      前の商品名
-    =link_to "#",class:"next" do
-      次の商品名
-      %span.fas.fa-angle-right
+    - if @item.previous.present?
+      =link_to item_path(@item.previous.id) ,class:"prev" do
+        %span.fas.fa-angle-left
+        = @item.previous.name
+    - if @item.next.present?
+      =link_to item_path(@item.next.id),class:"next" do
+        次の商品名
+        = @item.next.name
 .social-media-box
   %ul
     =link_to "https://www.facebook.com/",class:"sns-icon" do
@@ -112,7 +114,7 @@
 
 .items-index
   .items-index__contents
-    %h2 ほげほげさんのその他の商品
+    %h2 その他の商品
     .items-index__contents__box
       = render 'items/itembox', itembox: @itembox
       
