@@ -17,7 +17,7 @@
           ブランドから探す
         
       .header-bottom-right
-        - if user_signed_in?
+        - if user_signed_in? #ログイン中表示
           %ul
             %li
               %i.far.fa-heart
@@ -30,11 +30,9 @@
               やることリスト
             %li
               %i.far.fa-heart
-              マイページ
-            %li
-              = link_to destroy_user_session_path, method: :delete, class: 'btn-red' do
-                ﾛｸﾞｱｳﾄかり
-        - else
+              = link_to mypage_index_path, class: 'btn-red' do
+                マイページ
+        - else # ログアウト中表示
           %ul
             %li
               = link_to  signup_index_path, class: 'header-registration-btn' do
@@ -47,5 +45,3 @@
   - breadcrumb :exhibit
   = render "layouts/breadcrumbs"
 
-  -# = link_to signup_index_path,class:"test-signup-button" do
-  -#   %input{value: "新規登録", type: "submit"}
