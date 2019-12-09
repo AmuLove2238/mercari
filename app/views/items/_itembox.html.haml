@@ -1,6 +1,5 @@
 -@related_items.each do |related_item| 
   = link_to "/items/#{related_item.id}",class:"items-box" do
-    -#clearfix?
     =image_tag related_item.images[0].image.url
     .items-body
       .items-body__name
