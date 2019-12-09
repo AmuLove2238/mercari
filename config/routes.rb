@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'exhibit/index'=>"exhibit#index"
 
-  resources :items, only: [:index, :show]
+
 
   resources :signup, only: [:index,:create] do
     collection do
