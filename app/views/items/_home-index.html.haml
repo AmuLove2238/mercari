@@ -1,5 +1,5 @@
 - @items.each do |item|
-  = link_to "/items/#{item.id}",class:"items-box" do
+  = link_to item_path(item.id),class:"items-box" do
     .items-image
       =image_tag item.images[0].image
       %span
