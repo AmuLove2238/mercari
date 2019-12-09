@@ -72,7 +72,6 @@ class CardController < ApplicationController
 
   def show #Cardのデータpayjpに送り情報を取り出します
     card = Card.find_by(user_id: current_user.id)
-    binding.pry
     if card.blank?
       redirect_to action: "index"
     else
