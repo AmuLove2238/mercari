@@ -2,8 +2,13 @@ class ItemsController < ApplicationController
   def index
     @items = Item.order("id DESC").limit(10)
   end
-  
+
+  MAX_DISPLAY_RELATED_PRODUCTS = 6
+
   def show
+    @item = Item.find(params[:id])
+    @related_items = Item.distinct.where.not(id: @item.id).sample(MAX_DISPLAY_RELATED_PRODUCTS)
+    
   end
 
   def new
@@ -28,7 +33,9 @@ class ItemsController < ApplicationController
         format.html{render action: 'new'}
       end
     end
+
   end
+
 
 
   private
@@ -37,7 +44,8 @@ class ItemsController < ApplicationController
       :name, 
       :detail, 
       :deliverdays, 
-      :price, 
+      :price,
+      :prefecture_id,
       # ↓後ほど機能追加のためコメントアウト
       # :handing,
       :profit,
