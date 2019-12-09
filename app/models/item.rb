@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   has_many :regions
   accepts_nested_attributes_for :regions
 
-  validates :user_id,{presence:true}
+  validates :seller_id,{presence:true}
 
   def seller
     return User.find(self.seller_id)
