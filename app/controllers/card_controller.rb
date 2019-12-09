@@ -1,6 +1,7 @@
 class CardController < ApplicationController
 
   require "payjp"
+  before_action :set_card, only: [:delete, :show]
   protect_from_forgery
 
   def index
@@ -58,27 +59,35 @@ class CardController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    card = Card.find_by(user_id: current_user.id)
-    if card.blank?
+    if @card.blank?
       redirect_to action: "index"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      customer.delete
-      card.delete
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      if customer.delete && @card.delete
+        redirect_to card_index_path
+      else
+        redirect_to card_index_path, alert: '削除に失敗しました。'
+      end
+      
     end
-      redirect_to "/card"
+      
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    card = Card.find_by(user_id: current_user.id)
-    if card.blank?
+    
+    if @card.blank?
       redirect_to action: "index"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+  end
+
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id) if Card.find_by(user_id: current_user.id).present?
   end
 
 end
