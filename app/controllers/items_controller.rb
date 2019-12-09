@@ -37,6 +37,12 @@ class ItemsController < ApplicationController
 
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
+  end
+
 
 
   private
@@ -58,7 +64,7 @@ class ItemsController < ApplicationController
       :postage, 
       images_attributes: [:image],
       regions_attributes: [:name]
-    ).merge(user_id: current_user.id)
+    ).merge(seller_id: current_user.id)
   end
 
 end
