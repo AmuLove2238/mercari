@@ -1,0 +1,30 @@
+= render 'shared/signup-header'
+.login-main
+  .login-panel
+    .login-signup-inner
+      %pアカウントをお持ちでない方はこちら
+      = link_to  signup_index_path, class: 'btn-default' do
+        新規会員登録
+    .login-sns-inner
+      = link_to "#", class: 'btn-fb' do
+        %i.fab.fa-facebook.icon-facebook.btn-fb-icon
+        Facebookでログイン
+
+      = link_to "#", class: 'btn-google' do
+        = image_tag "https://developers.google.com/identity/images/g-logo.png?hl=ja", width:"25px", height:"25px",class: 'btn-google-icon'
+        Googleでログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login-form-inner
+        .form-group-top
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "input-default"
+        .form-group
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "input-default"
+
+        = f.submit "ログイン", class: 'login-submit btn-default btn-red'
+
+        .link-text-left
+          = link_to "#" do
+            パスワードお忘れの方
+
+= render 'shared/signup-footer'
+

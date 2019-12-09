@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :items do
   end
   
-  devise_for :users
+  devise_for :users, controllers: {
+  confirmations: 'users/confirmations',
+  passwords:     'users/passwords',
+  registrations: 'users/registrations',
+  sessions:      'users/sessions',
+}
   
 
   get 'exhibit/index'=>"exhibit#index"
@@ -29,10 +34,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user do [:show]
+  resources :users do [:show]
     collection do
       get 'mypage'
       get 'profile'
+      get 'logout'
     end
   end
 

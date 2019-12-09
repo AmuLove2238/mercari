@@ -42,8 +42,13 @@
       padding: 8px 24px;
       font-weight: bold;
     }
-    .form-for{
-
+    .logout-form{
+      padding: 50px 64px;
+      .btn-red{
+        @include btn-red;
+        @include btn-default;
+        margin: 0 150px;
+      }
     }
     .user-icon-name-set{
       padding: 72px 16px 24px;
