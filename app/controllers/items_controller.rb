@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   MAX_DISPLAY_RELATED_PRODUCTS = 6
 
   def show
-    @item = Item.find_by(id:params[:id])
+    @item = Item.find(params[:id])
     @related_items = Item.distinct.where.not(id: @item.id).sample(MAX_DISPLAY_RELATED_PRODUCTS)
     
   end
