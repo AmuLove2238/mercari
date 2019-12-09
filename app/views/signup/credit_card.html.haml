@@ -22,7 +22,7 @@
                   %li
                     = image_tag '/svg/jcb-logo.gif'
                   %li
-                    = image_tag '/svg/amex-logo.gif'
+                    = image_tag '/svg/amex.gif'
                   %li
                     = image_tag '/svg/diners-logo.gif'
                   %li
@@ -70,7 +70,8 @@
                 %p
                   %span.hatena
                     ?
-                  %a{ href: '#'}カード裏面番号とは？
+                  = link_to "#" do
+                    カード裏面番号とは？
             .signup-inner
               .form-group#card_token
                 
