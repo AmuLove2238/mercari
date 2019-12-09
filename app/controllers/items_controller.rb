@@ -38,7 +38,6 @@ class ItemsController < ApplicationController
   end
 
 
-
   private
   def item_params
     params.require(:item).permit(
@@ -58,7 +57,7 @@ class ItemsController < ApplicationController
       :postage, 
       images_attributes: [:image],
       regions_attributes: [:name]
-    ).merge(user_id: current_user.id)
+    ).merge(seller_id: current_user.id)
   end
 
 end
