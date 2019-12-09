@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
   resources :items do
-    resources :images
   end
   
   devise_for :users, controllers: {
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'exhibit/index'=>"exhibit#index"
 
-  resources :items, only: [:index, :show]
+
 
   resources :signup, only: [:index,:create] do
     collection do

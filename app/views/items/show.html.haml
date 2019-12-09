@@ -1,12 +1,15 @@
 = render 'shared/header', header: @header
 .item-box
   .item-name
-    %h1 古今和歌集
-  .item-main
+    %h1
+      = @item.name
+  .item-main.clearfix
     .item-photo
       .item-photo__main
-        %img{src:"/img/book_japan_kokinwa_kasyuu.png"}/
-      .item-photo__sub
+        %ul.slider
+          - @item.images.each do |image|
+            %li
+              = image_tag image.image
     %table.item-detail-table
       %tr
         %th 出品者
@@ -29,22 +32,28 @@
         %td L
       %tr
         %th 商品の状態
-        %td 新品
+        %td
+          = @item.condition
       %tr
         %th 配送料の負担
-        %td 送料込み(出品者負担)
+        %td
+          = @item.postage
       %tr
         %th 配送の方法
         %td ゆうゆうメルカリ便
       %tr
         %th 配送元地域
-        %td 東京都
+        %td
+          = link_to '#',class:"region" do
+            = @item.prefecture.name
       %tr
         %th 配送日の目安
-        %td 即日発送
+        %td 
+          = @item.deliverdays
   .item-price
     %span.item-price__price
-      ¥999,999,999
+      ¥
+      = converting_to_jpy(@item.price)
     %span.item-price__tax
       (税込)
     %span.item-price__shipping-fee
@@ -53,7 +62,7 @@
       購入画面に進む
 
   .item-description
-    %p 商品説明が入ります。
+    = simple_format(@item.detail)
   .item-button-box
     .right-button
       .right-button--like
@@ -78,12 +87,14 @@
 
 .nav-item
   %ul
-    =link_to "#",class:"prev" do
-      %span.fas.fa-angle-left
-      前の商品名
-    =link_to "#",class:"next" do
-      次の商品名
-      %span.fas.fa-angle-right
+    - if @item.previous.present?
+      =link_to item_path(@item.previous.id) ,class:"prev" do
+        %span.fas.fa-angle-left
+        = @item.previous.name
+    - if @item.next.present?
+      =link_to item_path(@item.next.id),class:"next" do
+        次の商品名
+        = @item.next.name
 .social-media-box
   %ul
     =link_to "https://www.facebook.com/",class:"sns-icon" do
@@ -98,7 +109,7 @@
 
 .items-index
   .items-index__contents
-    %h2 ほげほげさんのその他の商品
+    %h2 その他の商品
     .items-index__contents__box
       = render 'items/itembox', itembox: @itembox
       
