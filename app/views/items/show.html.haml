@@ -75,6 +75,16 @@
       %span.fas.fa-lock
       あんしん・あんぜんへの取り組み
 
+-if user_signed_in? && @item.seller_id == current_user.id
+  .item-editor
+    = link_to "",class:"item-editor__edit btn" do
+      商品の編集
+    %p or
+    .item-editor__stop.btn
+      出品を停止する
+    = link_to item_path(@item),method: :delete,class:"item-editor__delete-btn" do
+      この商品を削除する
+
 .item-message
   .message-container
     .message-content

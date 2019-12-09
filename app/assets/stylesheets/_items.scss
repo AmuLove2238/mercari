@@ -2,6 +2,20 @@ li{
   list-style: none;
 }
 
+.btn{
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  font-weight:600;
+  line-height: 60px;
+  background-color:#ea352d;
+  margin: 16px auto;
+  width: 600px;
+  color:#FFF;
+  border:none;
+  text-decoration: none;
+}
+
 .item-box{
   background-color:#FFF;
   height: auto;
@@ -94,19 +108,6 @@ li{
       font-size:10px;
     }
   }
-  .buy-btn{
-    display: block;
-    text-align: center;
-    font-size: 24px;
-    font-weight:600;
-    line-height: 60px;
-    background-color:#ea352d;
-    margin: 16px auto;
-    width: 600px;
-    color:#FFF;
-    border:none;
-    text-decoration: none;
-  }
 
   .item-description{
     margin-left: 50px;
@@ -136,6 +137,34 @@ li{
       color:#0099e8;
     }
   }
+}
+
+.item-editor{
+  background-color: #FFF;
+  height: auto;
+  width: 700px;
+  margin: 30px auto;
+  padding: 20px 0;
+
+  p{
+    display: block;
+    text-align: center;
+  }
+  
+  &__delete-btn{
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  font-weight:600;
+  line-height: 60px;
+  background-color:#aaa;
+  margin: 16px auto;
+  width: 600px;
+  color:#FFF;
+  border:none;
+  text-decoration: none;
+  }
+
 }
 
 .item-message{

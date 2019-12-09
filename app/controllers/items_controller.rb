@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item,only: [:show,:destroy]
+
   def index
     @items = Item.order("id DESC").limit(10)
   end
@@ -6,7 +8,6 @@ class ItemsController < ApplicationController
   MAX_DISPLAY_RELATED_PRODUCTS = 6
 
   def show
-    @item = Item.find(params[:id])
     @user = @item.seller
     @related_items = Item.distinct.where.not(id: @item.id).sample(MAX_DISPLAY_RELATED_PRODUCTS)
     
@@ -37,8 +38,21 @@ class ItemsController < ApplicationController
 
   end
 
+  def destroy
+    if @item.seller_id == current_user.id && @item.destroy
+      redirect_to root_path
+    else
+      redirect_to items_path, alert: '削除に失敗しました。'
+    end
+    
+  end
+
 
   private
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def item_params
     params.require(:item).permit(
       :name, 
