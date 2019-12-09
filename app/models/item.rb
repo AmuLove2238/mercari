@@ -9,6 +9,12 @@ class Item < ApplicationRecord
   has_many :regions
   accepts_nested_attributes_for :regions
 
+  validates :user_id,{presence:true}
+
+  def user
+    return User.find(self.user_id)
+  end
+
   def previous
     Item.where("id < ?",id).order("id DESC").first
   end
