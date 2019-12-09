@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @user = @item.seller
     @related_items = Item.distinct.where.not(id: @item.id).sample(MAX_DISPLAY_RELATED_PRODUCTS)
     
   end
@@ -57,8 +58,7 @@ class ItemsController < ApplicationController
       :postage, 
       images_attributes: [:image],
       regions_attributes: [:name]
-    )
-    # .merge(user_id: current_user.id)
+    ).merge(user_id: current_user.id)
   end
 
 end
