@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20191210045746) do
     t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "ancestry"
     t.index ["item_id"], name: "index_categories_on_item_id", using: :btree
   end
 
@@ -90,6 +91,12 @@ ActiveRecord::Schema.define(version: 20191210045746) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_phonenumbers_on_user_id", using: :btree
+  end
+
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "regions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

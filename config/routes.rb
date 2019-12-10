@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 }
   
 
-  get 'exhibit/index'=>"exhibit#index"
 
+  resources :items, only: [:index, :show] 
 
 
   resources :signup, only: [:index, :create] do
@@ -40,6 +40,9 @@ Rails.application.routes.draw do
 
   resources :mypage do [:index]
     collection do
+      get 'mypage'
+      get 'identificatio'
+      get "purchase_screen"
       get 'information'     #本人情報 後で追加
       get 'profile'         #プロフィール
       get 'logout'          #ログアウト
