@@ -43,8 +43,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(update_item_params)
-    redirect_to root_path
+    if @item.update(update_item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
   end
 
   def destroy
