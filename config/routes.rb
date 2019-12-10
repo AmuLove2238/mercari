@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   
 
   get 'exhibit/index'=>"exhibit#index"
-
-  resources :items, only: [:index, :show]
+  # get "users/identification"=>"users#identification"
+  resources :items, only: [:index, :show] 
 
   resources :signup, only: [:index,:create] do
     collection do
@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     collection do
       get 'mypage'
       get 'profile'
+      get 'identificatio'
+      get "purchase_screen"
     end
   end
 
