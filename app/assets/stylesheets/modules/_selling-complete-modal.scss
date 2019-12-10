@@ -1,0 +1,45 @@
+*{box-sizing:border-box }
+
+.selling-complete-modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: none;
+  .modal{
+    background-color: #fff;
+    position: absolute;
+    top: 20%;
+    left: 29.1%;
+    padding: 20px 0 40px;
+    width: 700px;
+    height: auto;
+    text-align: center;
+    &__top {
+      line-height: 80px;
+      text-align: center;
+      font-weight: bold;
+      border-bottom: solid 1px #ccc;
+    }
+    &__bottom {
+      padding: 40px;
+      font-size: 13px;
+      text-align: center;
+      &--middle {
+        background-color: red;
+        color: white;
+        line-height: 45px;
+        margin-top: 40px;
+      }
+      &--under {
+        color: #0099e8;
+        text-align: center;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+    }
+  }
+}

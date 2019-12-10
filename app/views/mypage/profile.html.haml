@@ -1,0 +1,26 @@
+= render 'shared/header', header: @header
+= link_to exhibit_index_path, class: "cam-icon" do
+  %p 出品
+  %i.fas.fa-camera.fa-4x
+
+.mypage-container
+  = render 'shared/mypage-side'
+  
+  .mypage-content
+    %h2 プロフィール
+    .form-for
+    .user-icon-name-set
+      .icon-box
+        %img(src="/svg/member_photo_noimage.png" alt="user-logo")
+      %input(type="text" placeholder='ニックネーム' calss='input-default')
+    .profile-content
+      %textarea(class='mypage-textarea'name="" cols="30" rows="10")
+      %button{ id: 'mypage-btn', class: 'btn-default btn-sns btn-sns-fb'}
+        変更する
+      
+
+
+
+= render 'shared/footer', footer: @footer
+
+ 

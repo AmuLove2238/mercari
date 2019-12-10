@@ -42,11 +42,12 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -64,12 +65,29 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
+gem 'paperclip'
 gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'fog-aws'
 
-
+gem "haml-rails"
 gem 'erb2haml'
+gem "active_hash"
+gem 'devise'
+gem 'font-awesome-rails'
+gem 'pry-rails'
+gem 'rails-i18n'
+gem 'active_hash'
 
-gem 'haml-rails'
+# テスト用
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+# sns認証用
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+
+gem 'payjp'
+gem 'dotenv-rails' 
+gem 'gretel'

@@ -1,0 +1,90 @@
+.mypage-container{
+  margin: 40px auto 0;
+  width: 1020px;
+  .maypage-sidebar{
+    float: left;
+    width: 280px;
+    margin: 0 40px 40px 0;
+    h3{
+      margin: 40px 0 5px 0;
+      font-weight: bold;
+
+    }
+    .mypage-nav__list{
+      li{
+        width: 280px;
+        background-color: #fff;
+        border: 0.2px solid #eee;
+        a{
+          text-decoration: none;
+          color: #333;
+          padding: 16px;
+          font-size: 13px;
+          line-height: 15px;
+          display: block;
+          position: relative;
+        }
+        .right-arrow-icon{
+          position: absolute;
+          right: 17px;
+        }
+      }
+    }
+  }
+  .mypage-content{
+    float: right;
+    width: 700px;
+    background-color: #fff;
+    padding-bottom: 20px;
+    h2{
+      text-align: center;
+      font-size: 24px;
+      padding: 8px 24px;
+      font-weight: bold;
+    }
+    .logout-form{
+      padding: 50px 64px;
+      .btn-red{
+        @include btn-red;
+        @include btn-default;
+        margin: 0 150px;
+      }
+    }
+    .user-icon-name-set{
+      padding: 72px 16px 24px;
+      text-align: center;
+      background: url("/svg/mypage-background.jpg");
+      input{
+        @include input-def;
+        width: 220px;
+        padding: 10px;
+      }
+      .icon-box{
+        display: inline-block;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        vertical-align: middle;
+        img{
+          text-align: center;
+
+        }
+      }
+    }
+    .profile-content{
+      padding: 40px 20px;
+      .mypage-textarea{
+        min-width: 220px;
+        width: 100%;
+        padding: 10px;
+      }
+      #mypage-btn{
+        @include btn-default;
+        @include btn-red;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  }
+}

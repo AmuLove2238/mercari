@@ -1,0 +1,18 @@
+@mixin btn-default(){
+  display: block;
+  line-height: 48px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 14px;
+  text-decoration: none;
+}
+@mixin link-a(){
+  color: #0099e8;
+  text-decoration: none;
+}
+
+@mixin btn-red(){
+  background: $color-red;
+  border: 1px solid $color-red;
+  color: #fff;
+}
