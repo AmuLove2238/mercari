@@ -1,0 +1,81 @@
+.login-main{
+  .login-panel{
+    width: 456px;
+    background-color: #fff;
+    margin: 0 auto;
+    .login-signup-inner{
+      padding: 40px 64px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      p{
+        font-size: 14px;
+      }
+      a{
+        display: block;
+        margin-top: 8px;
+        color: #fff;
+        background: $color-twitter;
+        border: 1px solid $color-twitter;
+        text-decoration: none;
+        line-height: 40px;
+      }
+    }
+    .login-sns-inner{
+      padding: 32px 64px;
+      .btn-fb{
+        position: relative;
+        margin: 16px 0 0;
+        background-color: #385185;
+        color: #fff;
+        @include btn-default;
+        .btn-fb-icon{
+          position: absolute;
+          padding: 0;
+          left: 15px;
+          top: 12px;
+          font-size: 25px;
+        }
+      }
+      .btn-google{
+        position: relative;
+        margin: 16px 0 0;
+        border: #979797 1px solid;
+        color: #333;
+        @include btn-default;
+        .btn-google-icon{
+          position: absolute;
+          left: 15px;
+          top: 12px;
+        }
+      }
+    }
+    .login-form-inner{
+      .login-submit{
+        @include btn-default;
+        @include btn-red;
+        margin-top: 25px;
+        width: 100%;
+      }
+      padding: 24px 64px 32px;
+      .form-group-top{
+        .input-default{
+          @include input-def;
+        }
+      }
+      .form-group{
+        margin: 24px 0 0;
+        .input-default {
+          @include input-def;
+        }
+      }
+      .link-text-left{
+        a{
+          font-size: 14px;
+          display: block;
+          margin-top: 40px;
+          @include link-a;
+        }
+      }
+    }
+  }
+}

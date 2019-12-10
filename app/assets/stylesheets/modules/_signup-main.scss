@@ -70,6 +70,7 @@
             .card-exp{
               width: calc(50% - 35px);
               margin-right: 8px;
+              display: inline-block;
             }
             .card-brand-list{
               margin: 8px 0 0;
@@ -100,6 +101,7 @@
               select{
                 @include input-def;
                 width: 75px;
+                display: inline-block;
               }
             }
             .prefectures-select-form{

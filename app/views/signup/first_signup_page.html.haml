@@ -22,8 +22,8 @@
             .form-group
               = f.label :パスワード
               %span.form-require 必須
-              = f.password_field :encrypted_password, placeholder: "７文字以上", class: "login-input-text input-default"
-              = @user.errors.full_messages_for(:encrypted_password).first
+              = f.password_field :password, placeholder: "７文字以上", class: "login-input-text input-default"
+              = @user.errors.full_messages_for(:password).first
               %p.pass-info-text
                 ※ 英字と数字の両方を含めて設定してください
             .form-group

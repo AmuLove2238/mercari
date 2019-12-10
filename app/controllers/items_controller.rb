@@ -1,11 +1,22 @@
 class ItemsController < ApplicationController
+<<<<<<< HEAD
 
   before_action :move_to_index, except: :index
   
+=======
+  before_action :set_item,only: [:show,:destroy]
+
+>>>>>>> develop
   def index
+    @items = Item.order("id DESC").limit(10)
   end
-  
+
+  MAX_DISPLAY_RELATED_PRODUCTS = 6
+
   def show
+    @user = @item.seller
+    @related_items = Item.distinct.where.not(id: @item.id).sample(MAX_DISPLAY_RELATED_PRODUCTS)
+    
   end
 
   def new
@@ -42,17 +53,31 @@ class ItemsController < ApplicationController
         format.html{render action: 'new'}
       end
     end
+
   end
 
-  
+  def destroy
+    if @item.seller_id == current_user.id && @item.destroy
+      redirect_to root_path
+    else
+      redirect_to items_path, alert: '削除に失敗しました。'
+    end
+    
+  end
+
 
   private
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def item_params
     params.require(:item).permit(
       :name, 
       :detail, 
       :deliverdays, 
-      :price, 
+      :price,
+      :prefecture_id,
       # ↓後ほど機能追加のためコメントアウト
       # :handing,
       :profit,
@@ -64,8 +89,7 @@ class ItemsController < ApplicationController
       :postage, 
       images_attributes: [:image],
       regions_attributes: [:name]
-    )
-    # .merge(user_id: current_user.id)
+    ).merge(seller_id: current_user.id)
   end
 
   def move_to_index

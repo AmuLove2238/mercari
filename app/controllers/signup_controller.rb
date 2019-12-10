@@ -52,7 +52,7 @@ class SignupController < ApplicationController
     
     if @user.save
       sign_in(@user)
-      redirect_to new_card_path
+      redirect_to credit_card_signup_index_path
     else
       render :address
     end
@@ -66,7 +66,7 @@ class SignupController < ApplicationController
     params.require(:user).permit(
       :nickname,
       :email, 
-      :encrypted_password, 
+      :password, 
       personal_attributes: [:id, :family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana, :birthday],
       phonenumber_attributes: [:id, :phone_number],
       address_attributes: [:id, :address_family_name_kanji, :address_first_name_kanji, :address_family_name_kana, :address_first_name_kana, :postal_code, :region_id, :city, :district_number, :address_building,  :address_phone_number]
