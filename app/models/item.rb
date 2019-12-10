@@ -11,6 +11,7 @@ class Item < ApplicationRecord
 
   validates :seller_id,{presence:true}
 
+
   def seller
     return User.find(self.seller_id)
   end

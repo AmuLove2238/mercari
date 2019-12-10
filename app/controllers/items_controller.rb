@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item,only: [:show,:destroy,:edit]
+  before_action :set_item,only: [:show,:destroy,:edit,:update]
 
   def index
     @items = Item.order("id DESC").limit(10)
@@ -39,10 +39,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
+    
   end
 
   def update
+    @item.update(update_item_params)
+    redirect_to root_path
   end
 
   def destroy
@@ -59,6 +61,22 @@ class ItemsController < ApplicationController
   private
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def update_item_params
+    params.require(:item).permit(
+      :name, 
+      :detail, 
+      :deliverdays, 
+      :price,
+      :prefecture_id,
+      :profit,
+      :condition,  
+      :postage, 
+      images_attributes: [:id,:_destroy,:image],
+      regions_attributes: [:name]
+    ).merge(
+      seller_id: current_user.id)
   end
 
   def item_params
@@ -79,7 +97,8 @@ class ItemsController < ApplicationController
       :postage, 
       images_attributes: [:image],
       regions_attributes: [:name]
-    ).merge(seller_id: current_user.id)
+    ).merge(
+      seller_id: current_user.id)
   end
 
 end

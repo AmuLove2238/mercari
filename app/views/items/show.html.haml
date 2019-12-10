@@ -77,12 +77,12 @@
 
 -if user_signed_in? && @item.seller_id == current_user.id
   .item-editor
-    = link_to "",class:"item-editor__edit btn" do
+    = link_to edit_item_path,class:"item-editor__edit btn" do
       商品の編集
     %p or
     .item-editor__stop.btn
       出品を停止する
-    = link_to item_path(@item),method: :delete,class:"item-editor__delete-btn" do
+    = link_to item_path(@item),method: :delete,class:"item-editor__delete-btn",data: {confirm: "本当に削除しますか？"} do
       この商品を削除する
 
 .item-message
