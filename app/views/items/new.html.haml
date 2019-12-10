@@ -56,6 +56,7 @@
               %p カテゴリー
               .form 必須
             = u.collection_select(:category_id, @category, :id, :name,{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]")
+            -# カテゴリ機能で使うため
             -# = f.select (:category,[[""]])
           -# .category__frame
           -#   %p ---
