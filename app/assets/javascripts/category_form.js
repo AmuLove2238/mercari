@@ -1,3 +1,5 @@
+// カテゴリ機能で使うため
+
 // $(function(){ 
 //   $("#category__frame").on("change",function(e){
 //     e.preventDefault();

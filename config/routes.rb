@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 }
   
 
-  # get "users/identification"=>"users#identification"
+
   resources :items, only: [:index, :show] 
 
 

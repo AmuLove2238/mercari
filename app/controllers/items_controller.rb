@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     @category = Category.all.order("id ASC").limit(13)
     
   end
-
+  #カテゴリ機能で使うため
   # def search
   #   respond_to do |format|
   #     format.html
