@@ -7,9 +7,18 @@
     .item-photo
       .item-photo__main
         %ul.slider
-          - @item.images.each do |image|
-            %li
-              = image_tag image.image
+          - if (@item.buyer_id.blank?)
+            - @item.images.each do |image|
+              %li
+                = image_tag image.image
+          - else
+            - @item.images.each do |image|
+              %li
+                = image_tag image.image
+                .item-sold-label
+                .item-sold-label-text
+                  SOLD
+
     %table.item-detail-table
       %tr
         %th 出品者
@@ -58,8 +67,21 @@
       (税込)
     %span.item-price__shipping-fee
       送料込み
-    = link_to purchase_index_path(@item.id), class: "buy-btn" do
-      購入画面に進む
+
+    -# ユーザーと商品の状態によって商品詳細ページの表示を変える
+    - if (@item.buyer_id.blank?)
+      - if user_signed_in?
+        - if @item.seller_id == current_user.id
+
+        - else
+          = link_to purchase_index_path(@item.id), class: "buy btn" do
+            購入画面に進む 
+      - else
+        = link_to signup_index_path, class: "buy btn" do
+          購入画面に進む      
+    - else
+      .item-sold-out.btn
+        売り切れました
 
   .item-description
     = simple_format(@item.detail)

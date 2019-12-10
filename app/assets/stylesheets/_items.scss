@@ -47,7 +47,16 @@ li{
         max-width: 300px;
         min-height: 395px;  
         background-color: #f5f5f5;
-   
+        .item-sold-label{
+          @include sold-label;
+          border-bottom: 120px solid transparent;
+          border-left: 120px solid $color-red;
+        }
+        .item-sold-label-text{
+          @include sold-label-text;
+          font-size: 30px;
+          top: 25px;
+        }
       }
     }
 
@@ -106,6 +115,10 @@ li{
     }
     &__tax{
       font-size:10px;
+    }
+    .item-sold-out{
+      background: #888;
+      margin-bottom: 30px;
     }
   }
 

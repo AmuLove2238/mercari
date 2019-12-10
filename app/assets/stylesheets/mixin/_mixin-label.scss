@@ -30,4 +30,23 @@
   font-size: 12px;
   text-align: center;
 }
+@mixin sold-label(){
+  content: "";
+  border-bottom: 75px solid transparent;
+  border-left: 75px solid $color-red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+@mixin sold-label-text{
+  display: block;
+  top: 20px;
+  transform: rotate(-45deg);
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  left: 2;
+  z-index: 101;
+}
 
