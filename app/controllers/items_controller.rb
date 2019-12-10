@@ -38,6 +38,13 @@ class ItemsController < ApplicationController
 
   end
 
+  def edit
+    
+  end
+
+  def update
+  end
+
   def destroy
     if @item.seller_id == current_user.id && @item.destroy
       redirect_to root_path
