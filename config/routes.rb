@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+
+  get 'purchase/done'
+
   root to: 'items#index'
 
-  resources :items do
-  end
+  resources :items 
   
   devise_for :users, controllers: {
   confirmations: 'users/confirmations',
@@ -43,4 +46,12 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index'           #商品購入確認ページ
+      post 'pay'            #電話番号登録ページ
+      get 'done'            #購入完了ページ
+    end
+  end
 end
