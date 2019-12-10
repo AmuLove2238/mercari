@@ -15,7 +15,6 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    # @item = Item.find_by(id: params[:format])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     amount: @item.price, #支払金額を入力
@@ -34,11 +33,11 @@ class PurchaseController < ApplicationController
 
 
   def set_card
-    @card = Card.find_by(user_id: current_user.id) if Card.find_by(user_id: current_user.id).present?
+    @card = current_user.card if (current_user.card).present?
   end
 
   def set_item
-    @item = Item.find_by(id: params[:format])
+    @item = Item.find(params[:format])
   end
 
 end
