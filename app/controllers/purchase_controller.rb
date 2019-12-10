@@ -26,7 +26,7 @@ class PurchaseController < ApplicationController
   end
 
   def done #購入完了ページ
-   @item.update(buyer_id: current_user.id)
+    @item.update(buyer_id: current_user.id)
   end
 
 
