@@ -26,7 +26,7 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    # @item.updete(bayer_id: current_user.id) 購入者の定義 後で使う
+    @item.updete(bayer_id: current_user.id)
   end
 
 
