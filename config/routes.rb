@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 }
   
 
-  get 'exhibit/index'=>"exhibit#index"
   # get "users/identification"=>"users#identification"
   resources :items, only: [:index, :show] 
 

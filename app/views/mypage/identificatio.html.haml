@@ -1,8 +1,63 @@
-= render 'shared/header', header: @header
-.mainss
-  = render 'mypages/sidebar'
-  .inners-right
-    .mainss-top
+-# = render 'shared/header', header: @header
+-# .mainss
+-#   = render 'mypages/sidebar'
+-# -#   .inners-right
+-# -#     .mainss-top
 
-    .mainss-bottom
--# = render "shared/footer"
+-# -#     .mainss-bottom
+-# -# -# = render "shared/footer"
+
+-# .mains
+-#   .signup-panel
+-#     .signup-panel__title--adress2 本人情報の登録
+-#     .text-right
+-#       %p
+-#         お客さまの本人情報をご登録ください。
+-#         %br
+-#         登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+-#     .text-lower-right
+-#       = link_to "#"
+-#       %i.fa.fa-chevron-right
+-#     .text-name
+-#       %label
+-#         お名前
+-#       %p
+-#         竹内久人
+-#     .text-name
+-#       %label お名前カナ
+-#       %p
+-#         タケウチヒサト
+-#     .text-name
+-#       %label 生年月日
+-#       %p
+-#         1994.2.17
+-#     -# = form_for(@identity_information, url: identification_users_path) do |f|
+-#       .signup-form
+-#         .field
+-#           %label{for: "postal_code"} 郵便番号
+-#           %span.form-require--gray
+-#           = f.text_field :postal_code, class: "field__input2"
+-#         .field
+-#           .field__area-form
+-#             = f.label :area_id, "都道府県"
+-#             %span.form-require--gray
+-#             = f.collection_select(:area_id, Area.all, :id, :name, {prompt: “--“})
+-#             %i.fas.fa-chevron-down
+-#         .field
+-#           %label{for: "city"} 市区町村
+-#           %span.form-require--gray
+-#           = f.text_field :city, class: "field__input2"
+-#         .field
+-#           %label{for: "address"} 番地
+-#           %span.form-require--gray
+-#           = f.text_field :address, class: "field__input2"
+-#         .field
+-#           %label{for: "building"} 建物名
+-#           %span.form-require--gray
+-#           = f.text_field :building, class: "field__input2"
+-#       .sign-up-btn2
+-#         %button{type: "submit",class: "btn-red2"}
+-#           登録する
+-#     .text-lower-bottom
+-#       = link_to "#"
+-#       %i.fa.fa-chevron-right

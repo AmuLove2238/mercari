@@ -11,9 +11,13 @@ class MypageController < ApplicationController
   def information
     
   end
-  
+
   def purchase_screen
   end
+
+  def identification
+  end
+
 
 
 end

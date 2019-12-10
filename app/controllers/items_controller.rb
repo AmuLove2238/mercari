@@ -1,12 +1,9 @@
 class ItemsController < ApplicationController
-<<<<<<< HEAD
 
   before_action :move_to_index, except: :index
   
-=======
   before_action :set_item,only: [:show,:destroy]
 
->>>>>>> develop
   def index
     @items = Item.order("id DESC").limit(10)
   end
