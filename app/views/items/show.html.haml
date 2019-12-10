@@ -67,12 +67,12 @@
       (税込)
     %span.item-price__shipping-fee
       送料込み
-
+      
     -# ユーザーと商品の状態によって商品詳細ページの表示を変える
     - if (@item.buyer_id.blank?)
       - if user_signed_in?
         - if @item.seller_id == current_user.id
-
+          .item-show-nobtn
         - else
           = link_to purchase_index_path(@item.id), class: "buy btn" do
             購入画面に進む 

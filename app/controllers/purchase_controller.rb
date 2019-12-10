@@ -26,7 +26,12 @@ class PurchaseController < ApplicationController
   end
 
   def done #購入完了ページ
-    @item.update(buyer_id: current_user.id)
+    if @item.update(buyer_id: current_user.id)
+      notice: '購入が完了しました'
+    else
+      redirect_to root_path,alert: '購入できませんでした。'
+    end
+
   end
 
 
