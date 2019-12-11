@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20191210045746) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
     t.string   "address_family_name_kanji", null: false
     t.string   "address_first_name_kanji",  null: false
     t.string   "address_family_name_kana",  null: false
@@ -25,7 +26,6 @@ ActiveRecord::Schema.define(version: 20191210045746) do
     t.string   "address_phone_number"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.integer  "user_id"
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
@@ -47,19 +47,8 @@ ActiveRecord::Schema.define(version: 20191210045746) do
     t.index ["item_id"], name: "index_categories_on_item_id", using: :btree
   end
 
-  create_table "cledits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",        null: false
-    t.string   "limit_month", null: false
-    t.string   "limit_year",  null: false
-    t.string   "security",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_cledits_on_user_id", using: :btree
-  end
-
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "image",      limit: 65535
+    t.text     "image",      limit: 65535, null: false
     t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -69,13 +58,13 @@ ActiveRecord::Schema.define(version: 20191210045746) do
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                        null: false
     t.text     "detail",        limit: 65535, null: false
+    t.string   "condition",                   null: false
     t.string   "deliverdays",                 null: false
     t.integer  "price",                       null: false
     t.integer  "handing"
     t.string   "profit"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "condition",                   null: false
     t.string   "postage",                     null: false
     t.string   "prefecture_id",               null: false
     t.integer  "seller_id"
@@ -83,6 +72,7 @@ ActiveRecord::Schema.define(version: 20191210045746) do
   end
 
   create_table "personals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
     t.string   "family_name_kanji",               null: false
     t.string   "first_name_kanji",                null: false
     t.string   "family_name_kana",                null: false
@@ -92,16 +82,21 @@ ActiveRecord::Schema.define(version: 20191210045746) do
     t.text     "introduction",      limit: 65535
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.integer  "user_id"
     t.index ["user_id"], name: "index_personals_on_user_id", using: :btree
   end
 
   create_table "phonenumbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "phone_number", null: false
     t.integer  "user_id"
+    t.string   "phone_number", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_phonenumbers_on_user_id", using: :btree
+  end
+
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "regions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -121,9 +116,9 @@ ActiveRecord::Schema.define(version: 20191210045746) do
   end
 
   create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
@@ -145,7 +140,6 @@ ActiveRecord::Schema.define(version: 20191210045746) do
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "categories", "items"
-  add_foreign_key "cledits", "users"
   add_foreign_key "images", "items"
   add_foreign_key "personals", "users"
   add_foreign_key "phonenumbers", "users"

@@ -1,38 +1,71 @@
--# 本人確認ページのビューを作るため
+-# 本人確認ページのビュー
+= render 'shared/header', header: @header
+.mainss
+  = render 'mypages/sidebar'
+  .signup-panel
+    .signup-panel__title
+      本人情報の登録
+    .text-right
+      %p お客様の本人情報をご登録ください
+      %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      .text-right__right
+        = link_to "#" do
+          本人確認書類のアップロードについて
+          %i.fas.fa-chevron-right
+      .text-name
+        %label
+          お名前
+        %p
+          竹内久人
+      .text-name
+        %label お名前カナ
+        %p
+          タケウチヒサト
+      .text-name
+        %label 生年月日
+        %p
+          1994.2.17
+    
+    .signup-form
+      .field
+        %label{for: "postal_code"} 郵便番号
+        %span.form-require--gray 任意
+        .field-input2
+      
+      .field
+        %label{for: "postal_code"} 都道府県
+        %span.form-require--gray 任意
+        .field-input2
 
--# = render 'shared/header', header: @header
--# .mainss
--#   = render 'mypages/sidebar'
--# -#   .inners-right
--# -#     .mainss-top
+      .field
+        %label{for: "postal_code"} 市区町村
+        %span.form-require--gray 任意
+        .field-input2
 
--# -#     .mainss-bottom
--# -# -# = render "shared/footer"
+      .field
+        %label{for: "postal_code"} 番地
+        %span.form-require--gray 任意
+        .field-input2
 
--# .mains
--#   .signup-panel
--#     .signup-panel__title--adress2 本人情報の登録
--#     .text-right
--#       %p
--#         お客さまの本人情報をご登録ください。
--#         %br
--#         登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
--#     .text-lower-right
--#       = link_to "#"
--#       %i.fa.fa-chevron-right
--#     .text-name
--#       %label
--#         お名前
--#       %p
--#         竹内久人
--#     .text-name
--#       %label お名前カナ
--#       %p
--#         タケウチヒサト
--#     .text-name
--#       %label 生年月日
--#       %p
--#         1994.2.17
+      .field
+        %label{for: "postal_code"} 建物名
+        %span.form-require--gray 任意
+        .field-input2
+
+      .middlesss
+        登録する
+
+      .bottomsss
+        = link_to "#" do
+          本人情報の登録について
+          %i.fas.fa-chevron-right
+          
+= render 'shared/footer'
+
+
+-# 本人確認ページサーバーサイド組み合わせ
+      -# = f.submit "出品する",class: "middlesss",id:"selling-complete-show"
+        -# = f.text_field :postal_code, class: "field__input2"
 -#     -# = form_for(@identity_information, url: identification_users_path) do |f|
 -#       .signup-form
 -#         .field

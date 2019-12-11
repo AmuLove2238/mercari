@@ -55,7 +55,8 @@
             .category__character
               %p カテゴリー
               .form 必須
-            = u.collection_select(:category_id, @category, :id, :name,{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]")
+            -# = u.collection_select(:category_id, @category, :id, :name,{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]")
+            = u.select :category_id,[["レディース"],["メンズ"],["ベビー・キッズ"],["インテリア・住まい・小物"],["本・音楽・ゲーム"],["おもちゃ・ホビー・キッズ"],["コスメ・香水・美容"],["家電・スマホ・カメラ"],["スポーツ・レジャー"],["ハンドメイド"],["チケット"],["自転車・オートバイ"],["その他"]],{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]"
             -# カテゴリ機能で使うため
             -# = f.select (:category,[[""]])
           -# .category__frame
