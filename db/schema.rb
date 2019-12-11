@@ -93,12 +93,6 @@ ActiveRecord::Schema.define(version: 20191210045746) do
     t.index ["user_id"], name: "index_phonenumbers_on_user_id", using: :btree
   end
 
-  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "regions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535, null: false
     t.integer  "item_id"
@@ -133,6 +127,8 @@ ActiveRecord::Schema.define(version: 20191210045746) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "uid"
+    t.string   "provider"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
