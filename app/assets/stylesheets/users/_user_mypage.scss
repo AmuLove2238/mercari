@@ -1,0 +1,279 @@
+.mainss {
+  display: flex;
+  padding: 20px 20px;
+  .inner-left {
+    margin:0 40px 0 200px;
+    width: 300px;
+    &__bar{
+      font-size: 14px;
+      margin-bottom: 40px;
+      }
+      h4{
+        font-weight: bold;
+      }
+      ul{
+        padding-inline-start:0;
+        li{
+          background-color:white;
+          border-bottom: 1px solid #D0D0D0;
+          font-size: 14px;
+          display: flex;
+          a{
+            text-decoration: none;
+            color: black;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 16px;
+            margin-right: 20px;
+            .side{
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              margin-right: 70px;
+            }
+            .fa.fa-chevron-right{
+              margin: 0 0 0 auto;
+              color: #ccc;
+              opacity: 0.8;
+              &:hover{
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+    .right-content{
+      float: right;
+      width: 700px;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      .mypage-user-icon{
+        height: 200px;
+        background-image: image-url("/img/user-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .mypage-icon{
+          text-decoration: none;
+          color: black;
+          &:hover{
+            text-decoration: underline;
+            opacity: 0.9;
+            z-index: 2;
+          }
+        }
+        .image{
+          border-radius: 50%;
+        }
+        &__name{
+          font-size: 14px;
+          margin: 8px 0;
+          font-weight: bold;
+        }
+      }
+      .mypage-number{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &__gedgement{
+          font-size: 14px;
+          margin-right: 15px;
+          &__num{
+            font-size:16px;
+            font-weight: bold;
+            margin-left: 10px;
+          }
+        }
+        &__number{
+          font-size: 14px;
+          margin-right: 15px;
+          &__num{
+            font-size:16px;
+            font-weight: bold;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  .mypage-todo{
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    &__mypage{
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding:0;
+      &__notice{
+        background-color: gainsboro;
+        width: 350px;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        border-top: solid 2px red;
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+      }
+      &__todo-list{
+        background-color: white;
+        width: 350px;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+      }
+    }     
+    .tab-content{
+      background-color: white;
+      #mypage-tab-notification{
+        list-style: none;
+        padding: 0;
+        margin-bottom: 40px;
+        .mypage-tab-notification__link{
+          position: relative;
+          border-bottom : solid 1px gray; 
+          .mypage-item-link{
+            display: block;
+            min-height: 80px;
+            padding: 16px;
+            margin-left: 68px;
+            margin-right: 40px;
+            &__text{
+              color: #333;
+              font-size: 14px;
+            }
+            &__time{
+              color: #888;
+              .clock{
+                margin: 0 8px 0 0;
+                font-size: 16px;
+                vertical-align: middle;
+              }
+              &__date{
+                vertical-align: middle;
+                font-size: 14px;
+              }
+            }
+          }
+          .angle-right{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 20px;
+          }
+          .right-icon{
+            background-color: whitesmoke; 
+            position: absolute;
+            top :20px;
+            left: 15px;
+          }
+        }
+        .mypage-tab-notification__link:hover{
+          background-color: whitesmoke;
+          color: black;
+        }
+        .mypage-go-list{
+          height: 86px;
+          padding: 16px;
+          background-color: white;
+          &__all{
+            background-color: whitesmoke;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 14px;
+          }
+          .mypage-go-list__all:hover{
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+  .mypage-tab-container{
+    margin:40px 0 0;
+    background-color: white;
+    border-top : solid 1px white;
+    &__head{
+      padding: 0 16px;
+      background: white;
+      font-size: 16px;
+      line-height: 72px;
+      margin: 0;
+      font-weight: bold;
+    }
+    .mypage-tabs{
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      height: 75px;
+      margin: 0;
+      padding: 0;
+      .transaction{
+        background-color: white;
+        display: block;
+        line-height: 72px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        border-top: solid 2px red;
+        margin: 0;
+        &__item{
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      .past_transaction{
+        background-color: gainsboro;
+        display: block;
+        line-height: 72px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        &__item{
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+    }
+    .item-content{  
+      background-color: white;
+      position: relative;
+      &__list{
+        padding: 160px 0 60px;
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 78px 85px;
+        text-align: center;
+        font-size: 16px;
+        color: lightgray;
+        font-weight: bold;
+      }
+      &__icon{
+        opacity: 0.1;
+        position: absolute;
+        top:50px;
+        left:260px;
+      }
+    }
+  }
