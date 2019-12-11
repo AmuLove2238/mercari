@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
 
-  get 'purchase/done'
-
-  root to: 'items#index'
+  root to: 'items#index' #トップページ
 
   resources :items 
   
@@ -13,11 +10,6 @@ Rails.application.routes.draw do
   registrations: 'users/registrations',
   sessions:      'users/sessions',
 }
-  
-
-
-
-
 
   resources :signup, only: [:index, :create] do
     collection do
@@ -40,7 +32,6 @@ Rails.application.routes.draw do
 
   resources :mypage do [:index]
     collection do
-      get 'mypage'
       get 'identificatio'   #本人確認ページ
       get "purchase_screen" #商品購入確認ページ
       get 'information'     #本人情報 後で追加
