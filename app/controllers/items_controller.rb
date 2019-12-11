@@ -53,6 +53,21 @@ class ItemsController < ApplicationController
 
   end
 
+  def edit
+    
+  end
+
+  def update
+    if @item.seller_id == current_user.id && @item.update(update_item_params)
+      params[:images]['image'].each do |image|
+        @item.images.update(image: image, item_id: @item.id)
+      end
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     if @item.seller_id == current_user.id && @item.destroy
       redirect_to root_path
@@ -66,6 +81,22 @@ class ItemsController < ApplicationController
   private
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def update_item_params
+    params.require(:item).permit(
+      :name, 
+      :detail, 
+      :deliverdays, 
+      :price,
+      :prefecture_id,
+      :profit,
+      :condition,  
+      :postage, 
+      images_attributes: [:id,:_destroy,:image],
+      regions_attributes: [:name]
+    ).merge(
+      seller_id: current_user.id)
   end
 
   def item_params
@@ -86,7 +117,8 @@ class ItemsController < ApplicationController
       :postage, 
       images_attributes: [:image],
       regions_attributes: [:name]
-    ).merge(seller_id: current_user.id)
+    ).merge(
+      seller_id: current_user.id)
   end
 
   def move_to_index
