@@ -1,0 +1,8 @@
+- if user_signed_in?  
+  = link_to new_item_path, class: "cam-icon" do
+    %p 出品
+    %i.fas.fa-camera.fa-4x
+- else
+  = link_to signup_index_path, class: "cam-icon" do
+    %p 出品
+    %i.fas.fa-camera.fa-4x

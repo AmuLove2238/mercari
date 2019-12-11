@@ -447,17 +447,13 @@ select {
         // background-color: yellowgreen;
         display: flex;
         &__left {
-          // display: flex;
-          // background-color: gray;
-          width: 120px;
+          width: 140px;
           p {
             line-height: 45px;
           }
         }
         &__right {
-          // background-color: hotpink;
           width: 300px;
-          // height: 45px;
           margin: 0 0 0 auto;
           line-height: 45px;
           text-align: right;
@@ -469,19 +465,15 @@ select {
         }
       }
       &__bottom {
-        // height: 33.3%;
         margin-top: 20px;
-        // background-color: red;
         display: flex;
         &__left {
-          // background-color: hotpink;
           width: 120px;
           p {
             line-height: 45px;
           }
         }
         &__right {
-          // background-color: hotpink;
           width: 300px;
           margin: 0 0 0 auto;
           line-height: 45px;
@@ -498,7 +490,6 @@ select {
     }
   }
   .caution {
-    // height: 30%;
     background-color: white;
     padding: 20px;
     width: 100%;
@@ -510,7 +501,6 @@ select {
       display: block;
       background-color: #EA352D;
       // height: 45px;
-      width: 640px;
       margin-bottom: 20px;
       color: white;
       line-height: 45px;

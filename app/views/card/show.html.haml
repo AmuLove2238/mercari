@@ -1,0 +1,32 @@
+= render 'shared/header', header: @header
+= render 'layouts/exhibit-button'
+
+.mypage-container
+  = render 'shared/mypage-side'
+  
+  .mypage-content
+    .mypage-content__head
+      %h2 お支払い方法
+    .mypage-content__inner
+      .add-card-btn-apper
+        %h3 クレジットカード一覧
+      .credit-card-info
+        .credit-card-info__box
+          %ul
+            %li
+              -# = image_tag "/svg/#{@default_card_information.brand}.svg"
+            %li
+              = "**** **** **** " + @default_card_information.last4
+            %li
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+          = link_to delete_card_index_path, method: :delete, class: 'creditcard-remove' do
+            削除する
+
+
+      .add-card-btn-lower
+        .link-text-right
+          = link_to "#" do
+            お支払い方法について
+            = fa_icon "chevron-right", class:"right-arrow-icon"

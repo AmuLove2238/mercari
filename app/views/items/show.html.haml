@@ -1,18 +1,30 @@
 = render 'shared/header', header: @header
 .item-box
   .item-name
-    %h1 古今和歌集
-  .item-main
+    %h1
+      = @item.name
+  .item-main.clearfix
     .item-photo
       .item-photo__main
-        %img{src:"/img/book_japan_kokinwa_kasyuu.png"}/
-      .item-photo__sub
+        %ul.slider
+          - if (@item.buyer_id.blank?)
+            - @item.images.each do |image|
+              %li
+                = image_tag image.image
+          - else
+            - @item.images.each do |image|
+              %li
+                = image_tag image.image
+                .item-sold-label
+                .item-sold-label-text
+                  SOLD
+
     %table.item-detail-table
       %tr
         %th 出品者
         %td 
           =link_to '',class:"item-detail-table__user-name" do
-            ほげたろう
+            = @user.nickname
           .item-detail-table__review
             %i.fas.fa-smile
               %span 999
@@ -29,31 +41,50 @@
         %td L
       %tr
         %th 商品の状態
-        %td 新品
+        %td
+          = @item.condition
       %tr
         %th 配送料の負担
-        %td 送料込み(出品者負担)
+        %td
+          = @item.postage
       %tr
         %th 配送の方法
         %td ゆうゆうメルカリ便
       %tr
         %th 配送元地域
-        %td 東京都
+        %td
+          = link_to '#',class:"region" do
+            = @item.prefecture.name
       %tr
         %th 配送日の目安
-        %td 即日発送
+        %td 
+          = @item.deliverdays
   .item-price
     %span.item-price__price
-      ¥999,999,999
+      ¥
+      = converting_to_jpy(@item.price)
     %span.item-price__tax
       (税込)
     %span.item-price__shipping-fee
       送料込み
-    = link_to '', class: "buy-btn" do
-      購入画面に進む
+      
+    -# ユーザーと商品の状態によって商品詳細ページの表示を変える
+    - if (@item.buyer_id.blank?)
+      - if user_signed_in?
+        - if @item.seller_id == current_user.id
+          .item-show-nobtn
+        - else
+          = link_to purchase_index_path(@item.id), class: "buy btn" do
+            購入画面に進む 
+      - else
+        = link_to signup_index_path, class: "buy btn" do
+          購入画面に進む      
+    - else
+      .item-sold-out.btn
+        売り切れました
 
   .item-description
-    %p 商品説明が入ります。
+    = simple_format(@item.detail)
   .item-button-box
     .right-button
       .right-button--like
@@ -65,6 +96,16 @@
     .left-button
       %span.fas.fa-lock
       あんしん・あんぜんへの取り組み
+
+-if user_signed_in? && @item.seller_id == current_user.id
+  .item-editor
+    = link_to edit_item_path,class:"item-editor__edit btn" do
+      商品の編集
+    %p or
+    .item-editor__stop.btn
+      出品を停止する
+    = link_to item_path(@item),method: :delete,class:"item-editor__delete-btn",data: {confirm: "本当に削除しますか？"} do
+      この商品を削除する
 
 .item-message
   .message-container
@@ -78,12 +119,14 @@
 
 .nav-item
   %ul
-    =link_to "#",class:"prev" do
-      %span.fas.fa-angle-left
-      前の商品名
-    =link_to "#",class:"next" do
-      次の商品名
-      %span.fas.fa-angle-right
+    - if @item.previous.present?
+      =link_to item_path(@item.previous.id) ,class:"prev" do
+        %span.fas.fa-angle-left
+        = @item.previous.name
+    - if @item.next.present?
+      =link_to item_path(@item.next.id),class:"next" do
+        次の商品名
+        = @item.next.name
 .social-media-box
   %ul
     =link_to "https://www.facebook.com/",class:"sns-icon" do
@@ -98,7 +141,7 @@
 
 .items-index
   .items-index__contents
-    %h2 ほげほげさんのその他の商品
+    %h2 その他の商品
     .items-index__contents__box
       = render 'items/itembox', itembox: @itembox
       

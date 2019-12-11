@@ -8,6 +8,7 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
+  z-index: 100;
   p{
     font-size:22px;
     color: rgb(255, 255, 255);
@@ -29,11 +30,16 @@
 
 main{
   text-align: center;
-  width: 100%;
-  .top_image{
-    background-image: image-url("/img/top_campaign.jpg");
+    width: 100%;
+  .center-item{
     height:390px;
     background-position: center;
+    img{
+      height: 390px;
+    }
+    button{
+      display: none;
+    }
   }
   .items__header{
     background-color: #FFFF;
@@ -107,6 +113,12 @@ main{
             width: 100%;
             height: 100%;
           }
+          .item-sold-label{
+            @include sold-label;
+          }
+          .item-sold-label-text{
+            @include sold-label-text;
+          }
           span{
             position: absolute;
             bottom:20px;
@@ -119,7 +131,6 @@ main{
             background: rgba(0,0,0,.4);
             padding: 3px 12px;
             border-radius: 0 90px 90px 0;
-  
           }
         }
 

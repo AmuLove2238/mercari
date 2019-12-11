@@ -23,16 +23,16 @@
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
                 = i.file_field :image, multiple:true, type: "file" ,onchange: "previewFiles()", name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                = image_tag "",height:"150",alt:"Image preview",name:'preview0'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview1'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview2'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview3'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview4'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview5'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview6'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview7'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview8'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview9'
+                = image_tag "",height:"150",name:'preview0'
+                = image_tag "",height:"150",name:'preview1'
+                = image_tag "",height:"150",name:'preview2'
+                = image_tag "",height:"150",name:'preview3'
+                = image_tag "",height:"150",name:'preview4'
+                = image_tag "",height:"150",name:'preview5'
+                = image_tag "",height:"150",name:'preview6'
+                = image_tag "",height:"150",name:'preview7'
+                = image_tag "",height:"150",name:'preview8'
+                = image_tag "",height:"150",name:'preview9'
 
     .stuff-name
       .stuff-name__top
@@ -44,25 +44,30 @@
         .stuff-name__description__character
           %h1 商品の説明
           .form 必須
-        = f.text_area :detail, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame"
+        = f.text_area :detail, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame",wrap: "hard"
 
     .stuff-details 
       .details-left
         %p 商品の詳細
       .details-right
-        .category
-          .category__character
-            %p カテゴリー
-            .form 必須
-          .category__frame
-            %p ---
-            .icon
-              %i.fas.fa-chevron-down
+        = fields_for :categories do |u|
+          .category
+            .category__character
+              %p カテゴリー
+              .form 必須
+            -# = u.collection_select(:category_id, @category, :id, :name,{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]")
+            = u.select :category_id,[["レディース"],["メンズ"],["ベビー・キッズ"],["インテリア・住まい・小物"],["本・音楽・ゲーム"],["おもちゃ・ホビー・キッズ"],["コスメ・香水・美容"],["家電・スマホ・カメラ"],["スポーツ・レジャー"],["ハンドメイド"],["チケット"],["自転車・オートバイ"],["その他"]],{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]"
+            -# カテゴリ機能で使うため
+            -# = f.select (:category,[[""]])
+          -# .category__frame
+          -#   %p ---
+          -#   .icon
+          -#     %i.fas.fa-chevron-down
         .condition
           .condition__character
             %p 商品の状態
             .form 必須   
-          = f.select(:condition,[["新品、未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {prompt: "---"})
+          = f.select :condition,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---"}
         
     .delivery
       .delivery-left
@@ -73,21 +78,20 @@
           .burden__character
             %p 配送料の負担
             .form 必須
-          = f.select(:postage,[["送料込み(出品者負担)",1],["着払い購入者負担",2]], {prompt: "---"})
-        = fields_for :regions do |r|
-          .region
-            .region__character
-              %p 発送元の地域
-              .form 必須
-            .region__frame
-              = r.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"})
+          = f.select(:postage,[["送料込み(出品者負担)"],["着払い購入者負担"]], {prompt: "---"})
+        .region
+          .region__character
+            %p 発送元の地域
+            .form 必須
+          .region__frame
+            = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"})
 
         .days
           .days__character
             %p 発送までの日数
             .form 必須
           .days__frame
-            = f.select(:deliverdays,[["1~2日で発送",1],["2~3日で発送",2],["4~7日で発送",3]], {prompt: "---"})
+            = f.select(:deliverdays,[["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], {prompt: "---"})
 
     .price
       .price__left

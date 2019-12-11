@@ -1,0 +1,29 @@
+= render 'shared/header', header: @header
+= render 'layouts/exhibit-button'
+
+.mypage-container
+  = render 'shared/mypage-side'
+  
+  .mypage-content
+    .mypage-content__head
+      %h2 お支払い方法
+    .mypage-content__inner
+      .add-card-btn-apper
+        %h3 クレジットカード一覧
+      .add-card-btn-box
+        = link_to new_card_path, class: 'btn-red' do
+          = fa_icon "credit-card", class:"credit-card-icon"
+          クレジットカードを追加する
+
+
+      .add-card-btn-lower
+        .link-text-right
+          = link_to "#" do
+            お支払い方法について
+            = fa_icon "chevron-right", class:"right-arrow-icon"
+      
+
+
+
+= render 'shared/footer', footer: @footer
+

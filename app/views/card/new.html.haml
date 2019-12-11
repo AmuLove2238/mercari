@@ -1,37 +1,42 @@
-.payment-page  
-  = render 'shared/signup-progress-header'
-  .signup-main 
-    .signup-main__container
-      %h2.signup-main__container__header
-        お支払い方法
-      .signup-main__container__form
-        .signup-main__container__form__box
-          = form_tag( pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm" ) do
-            .signup-inner
-              .form-group
-                %label カード番号
-                %span.form-require 必須
-                = text_field "number", "", class: "input-default number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
-                %ul.card-brand-list
-                  %li 
-                    = image_tag '/svg/visa-logo.gif'
-                  %li
-                    = image_tag '/svg/master-card_logo.svg'
-                  %li
-                    = image_tag '/svg/saison-log.gif'
-                  %li
-                    = image_tag '/svg/jcb-logo.gif'
-                  %li
-                    = image_tag '/svg/amex-logo.gif'
-                  %li
-                    = image_tag '/svg/diners-logo.gif'
-                  %li
-                    = image_tag '/svg/discover-logo.gif'
+= render 'shared/header', header: @header
+= render 'layouts/exhibit-button'
 
-              .form-group
-                %div
-                  %label 有効期限
-                  %span.form-require 必須
+.mypage-container
+  = render 'shared/mypage-side'
+  
+  .mypage-content
+    .mypage-content__head
+      %h2 クレジットカード情報入力
+
+    .mypage-content__inner
+      .signup-main__container__form__box
+        = form_tag( pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm" ) do
+          .signup-inner
+            .form-group
+              %label カード番号
+              %span.form-require 必須
+              = text_field "number", "", class: "input-default number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+              %ul.card-brand-list
+                %li 
+                  = image_tag '/svg/visa-logo.gif'
+                %li
+                  = image_tag '/svg/master-card_logo.svg'
+                %li
+                  = image_tag '/svg/saison-log.gif'
+                %li
+                  = image_tag '/svg/jcb-logo.gif'
+                %li
+                  = image_tag '/svg/amex.gif'
+                %li
+                  = image_tag '/svg/diners-logo.gif'
+                %li
+                  = image_tag '/svg/discover-logo.gif'
+
+            .form-group
+              %div
+                %label 有効期限
+                %span.form-require 必須
+              .card-exp-inline
 
                 %select#exp_month.input-default.card-exp{name: "exp_month", type: "text"}
                   %option{value: ""} --
@@ -62,19 +67,20 @@
                   %option{value: "2028"}28
                   %option{value: "2029"}29
                 %span 年
-              .form-group
-                %label セキュリティコード
-                %span.form-require 必須
-                = text_field_tag "cvc", "", class: "input-default cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
-              .link-text-right
-                %p
-                  %span.hatena
-                    ?
-                  %a{ href: '#'}カード裏面番号とは？
-            .signup-inner
-              .form-group#card_token
-                
-              = submit_tag "次へ進む", id: "token_submit", class: "login-submit btn-default btn-red"
-  = render 'shared/signup-footer'
+            .form-group
+              %label セキュリティコード
+              %span.form-require 必須
+              = text_field_tag "cvc", "", class: "input-default cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+            .link-text-right
+              %p
+                %span.hatena
+                  ?
+                = link_to "#" do
+                  カード裏面番号とは？
+          .signup-inner
+            .form-group#card_token
+              
+            = submit_tag "追加する", id: "token_submit", class: "login-submit btn-default btn-red"
 
 
+= render 'shared/footer', footer: @footer

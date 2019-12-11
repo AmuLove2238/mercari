@@ -1,0 +1,122 @@
+= render "/shared/signup-header"
+.main
+  %h2.sell-form-header
+    %p 商品の情報を入力
+  = form_for @item do |f|
+    .sell-form-container 
+      %h3.sell-form-container__header
+        出品画像
+        %span.sell-form-container__header__require
+          必須
+      %p 最大10枚までアップロードできます
+      = f.fields_for :images do |i|
+        .dropzone-container
+          .dropzone-area
+            =i.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                %pre
+                  :preserve
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+                = i.file_field :image, multiple:true, type: "file" ,onchange: "previewFiles()", name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                = image_tag "",height:"150",name:'preview0'
+                = image_tag "",height:"150",name:'preview1'
+                = image_tag "",height:"150",name:'preview2'
+                = image_tag "",height:"150",name:'preview3'
+                = image_tag "",height:"150",name:'preview4'
+                = image_tag "",height:"150",name:'preview5'
+                = image_tag "",height:"150",name:'preview6'
+                = image_tag "",height:"150",name:'preview7'
+                = image_tag "",height:"150",name:'preview8'
+                = image_tag "",height:"150",name:'preview9'
+
+    .stuff-name
+      .stuff-name__top
+        .stuff-name__top__character 
+          %h1 商品名
+          .form 必須
+        = f.text_field :name, placeholder: "例 ）商品名 (必須 40文字まで)" , autofocus: true, class: "stuff-name__top__frame"
+      .stuff-name__description
+        .stuff-name__description__character
+          %h1 商品の説明
+          .form 必須
+        = f.text_area :detail, placeholder: "商品の説明 (必須1,000文字以上) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万年で購入したジャッケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです" , autofocus: true, class: "stuff-name__description__frame",wrap: "hard"
+
+    .stuff-details 
+      .details-left
+        %p 商品の詳細
+      .details-right
+        .category
+          .category__character
+            %p カテゴリー
+            .form 必須
+          .category__frame
+            %p ---
+            .icon
+              %i.fas.fa-chevron-down
+        .condition
+          .condition__character
+            %p 商品の状態
+            .form 必須   
+          = f.select :condition,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt: "---"}
+        
+    .delivery
+      .delivery-left
+        %p 配送について
+
+      .delivery-right
+        .burden
+          .burden__character
+            %p 配送料の負担
+            .form 必須
+          = f.select(:postage,[["送料込み(出品者負担)"],["着払い購入者負担"]], {prompt: "---"})
+        .region
+          .region__character
+            %p 発送元の地域
+            .form 必須
+          .region__frame
+            = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"})
+
+        .days
+          .days__character
+            %p 発送までの日数
+            .form 必須
+          .days__frame
+            = f.select(:deliverdays,[["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], {prompt: "---"})
+
+    .price
+      .price__left
+        %p 販売価格(300~9,999,999)
+      .price__right
+        .price__right__top
+          .price__right__top__character
+            %p 価格
+            .form 必須
+          .price__right__top__2
+            .price__right__top__2__icon
+              %p ¥
+            %input#price_calc.price__right__top__2__frame{placeholder: "例) 300", type: "number"}/
+        .price__right__middle
+          .price__right__middle__left
+            %p 販売手数料(10%)
+          .price__right__middle__right
+            
+        .price__right__bottom
+          .price__right__bottom__left
+            %p 販売利益
+          = f.number_field :price, style: "display: none", id: "price"
+          .price__right__bottom__right
+            
+
+
+    .caution
+      .caution__top
+        %ul
+          %li 禁止されている、行為を必ずご確認ください。
+          %li またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であ
+          %li あり処罰される可能性があります。
+          %li また、出品をもちまして加盟店規約に同意したことになります。
+      = f.submit "編集する",class: "caution__middle",id:"selling-complete-show"
+      = f.submit "もどる",class:"caution__bottom"
+
+= render "/shared/signup-footer"

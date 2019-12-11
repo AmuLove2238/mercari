@@ -41,8 +41,8 @@ Rails.application.routes.draw do
   resources :mypage do [:index]
     collection do
       get 'mypage'
-      get 'identificatio'
-      get "purchase_screen"
+      get 'identificatio'   #本人確認ページ
+      get "purchase_screen" #商品購入確認ページ
       get 'information'     #本人情報 後で追加
       get 'profile'         #プロフィール
       get 'logout'          #ログアウト
