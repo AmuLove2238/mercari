@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+
+  before_action :move_to_index, except: :index
+  
   before_action :set_item,only: [:show,:destroy]
 
   def index
@@ -20,7 +23,19 @@ class ItemsController < ApplicationController
     # @item.build_brand
     @item.images.build
     @item.regions.build
+    @category = Category.all.order("id ASC").limit(13)
+    
   end
+  #カテゴリ機能で使うため
+  # def search
+  #   respond_to do |format|
+  #     format.html
+  #     format.json do
+  #       @children = Category.find(params[:category_id]).children
+  #        #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+  #     end
+  #   end
+  # end
   
   def create
     @item = Item.new(item_params)
@@ -48,7 +63,6 @@ class ItemsController < ApplicationController
   end
 
 
-
   private
   def set_item
     @item = Item.find(params[:id])
@@ -73,6 +87,10 @@ class ItemsController < ApplicationController
       images_attributes: [:image],
       regions_attributes: [:name]
     ).merge(seller_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to controller: :signup, action: :index unless user_signed_in?
   end
 
 end

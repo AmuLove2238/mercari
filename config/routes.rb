@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+
+  get 'purchase/done'
+
   root to: 'items#index'
 
-  resources :items do
-  end
+  resources :items 
   
   devise_for :users, controllers: {
   confirmations: 'users/confirmations',
@@ -12,8 +15,8 @@ Rails.application.routes.draw do
 }
   
 
-  get 'exhibit/index'=>"exhibit#index"
 
+  resources :items, only: [:index, :show] 
 
 
   resources :signup, only: [:index, :create] do
@@ -37,10 +40,21 @@ Rails.application.routes.draw do
 
   resources :mypage do [:index]
     collection do
+      get 'mypage'
+      get 'identificatio'
+      get "purchase_screen"
       get 'information'     #本人情報 後で追加
       get 'profile'         #プロフィール
       get 'logout'          #ログアウト
     end
   end
 
+
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index'           #商品購入確認ページ
+      post 'pay'            #電話番号登録ページ
+      get 'done'            #購入完了ページ
+    end
+  end
 end

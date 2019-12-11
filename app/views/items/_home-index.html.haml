@@ -1,10 +1,37 @@
 - @items.each do |item|
-  = link_to item_path(item.id),class:"items-box" do
-    .items-image
-      =image_tag item.images[0].image
-      %span
-        ¥
-        = converting_to_jpy(item.price) #ヘルパーメソッド使用し区切りカンマを表示
-    .items-body
-      .items-body__name
-        = item.name
+  - if (item.buyer_id.blank?)
+    = link_to item_path(item.id),class:"items-box" do
+      .items-image
+        =image_tag item.images[0].image
+        %span
+          ¥
+          = converting_to_jpy(item.price) #ヘルパーメソッド使用し区切りカンマを表示
+      .items-body
+        .items-body__name
+          = item.name
+  - else
+    = link_to item_path(item.id),class:"items-box" do
+      .items-image
+        =image_tag item.images[0].image
+        .item-sold-label
+        .item-sold-label-text
+          SOLD
+        %span
+          ¥
+          = converting_to_jpy(item.price) #ヘルパーメソッド使用し区切りカンマを表示
+      .items-body
+        .items-body__name
+          = item.name
+
+
+
+
+
+
+
+
+
+
+
+
+
