@@ -1,4 +1,4 @@
-class ExhibitController < ApplicationController
-  def index
-  end
-end
+# class ExhibitController < ApplicationController
+#   def index
+#   end
+# end
