@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
 
 
-  resources :items, only: [:index, :show] 
+
 
 
   resources :signup, only: [:index, :create] do

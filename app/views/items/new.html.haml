@@ -1,7 +1,4 @@
-.headers
-  %h1
-    = link_to root_path do
-      = image_tag "/svg/fmarket_logo_red.svg"
+= render "/shared/signup-header"
 .main
   %h2.sell-form-header
     %p 商品の情報を入力
@@ -50,13 +47,13 @@
       .details-left
         %p 商品の詳細
       .details-right
-        = fields_for :categories do |u|
-          .category
-            .category__character
-              %p カテゴリー
-              .form 必須
-            -# = u.collection_select(:category_id, @category, :id, :name,{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]")
-            = u.select :category_id,[["レディース"],["メンズ"],["ベビー・キッズ"],["インテリア・住まい・小物"],["本・音楽・ゲーム"],["おもちゃ・ホビー・キッズ"],["コスメ・香水・美容"],["家電・スマホ・カメラ"],["スポーツ・レジャー"],["ハンドメイド"],["チケット"],["自転車・オートバイ"],["その他"]],{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]"
+        -# = fields_for :categories do |u|
+        -#   .category
+        -#     .category__character
+        -#       %p カテゴリー
+        -#       .form 必須
+        -#     -# = u.collection_select(:category_id, @category, :id, :name,{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]")
+        -#     = u.select :category_id,[["レディース"],["メンズ"],["ベビー・キッズ"],["インテリア・住まい・小物"],["本・音楽・ゲーム"],["おもちゃ・ホビー・キッズ"],["コスメ・香水・美容"],["家電・スマホ・カメラ"],["スポーツ・レジャー"],["ハンドメイド"],["チケット"],["自転車・オートバイ"],["その他"]],{prompt: "---"}, class:"category__frame", id:"category__frame", name: "item[category_id][]"
             -# カテゴリ機能で使うため
             -# = f.select (:category,[[""]])
           -# .category__frame
@@ -128,21 +125,6 @@
       = f.submit "出品する",class: "caution__middle",id:"selling-complete-show"
       = f.submit "もどる",class:"caution__bottom"
 
-.footers
-  %nav{class:"sign-up-footer"}
-    %ul
-      %li
-        = link_to href: "#" do
-          プライバシーポリシー
-      %li
-        = link_to href: "#" do
-          メルカリ利用規約
-      %li
-        = link_to href: "#" do
-          特定商取引に関する表記
-  =link_to href:"#", class:"footer-logo" do
-    = image_tag "/svg/logo_gray.svg"
-  %p
-    %small© 2019 Mercari
+= render "/shared/signup-footer"
 
 = render 'selling-complete-modal'
