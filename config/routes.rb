@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       get 'mypage'
       get 'profile'
       get 'logout'
+      get 'user_mypage'
     end
   end
 

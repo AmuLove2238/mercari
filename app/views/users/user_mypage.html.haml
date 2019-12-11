@@ -1,0 +1,117 @@
+= render 'shared/header', header: @header
+
+.mainss
+  = render 'mypages/sidebar'
+  .right-content
+    %section.mypage-user-icon
+      = link_to "#", class:"mypage-icon" do
+        .mypage-user-icon__image
+          = image_tag "/img/member_photo_noimage_thumb.png" , width:70, height:70, class:"image"
+        %h2.mypage-user-icon__name
+          ナメちゃん
+          -# = current_user.nickname
+      .mypage-number
+        .mypage-number__gedgement
+          評価
+          %span.mypage-number__gedgement__num
+            0
+        .mypage-number__number
+          出品数
+          %span.mypage-number__number__num
+            0
+    %section.mypage-todo
+      %ul.mypage-todo__mypage
+        %li
+          %h3.mypage-todo__mypage__notice
+            お知らせ
+        %li
+          %h3.mypage-todo__mypage__todo-list
+            やることリスト
+      .tab-content
+        %ul#mypage-tab-notification
+          %li.mypage-tab-notification__link
+            %a.mypage-item-link
+              .mypage-item-link__text
+                《あなたはどっちではじメル？》「メルクリ」でP1,000&抽選でライブにご招待！「あけおめ」でP1,000&全額ポイント還元のチャンス！
+              .mypage-item-link__time
+                %i.mypage-item-link__time__clock
+                  = fa_icon 'clock-o',class:"clock"
+                %span.mypage-item-link__time__date
+                  １時間前
+            %i.angle-right
+              = fa_icon 'angle-right' ,class:"angle-right"
+            .right-icon
+              = image_tag "/SVG/logo_red.svg" , width:45, height:45
+          %li.mypage-tab-notification__link
+            %a.mypage-item-link
+              .mypage-item-link__text
+                【必ずP3,000もらえる！？】今のうちに買うシカない！
+              .mypage-item-link__time
+                %i.mypage-item-link__time__clock
+                  = fa_icon 'clock-o' ,class:"clock "
+                %span.mypage-item-link__time__date
+                  １日前
+            %i.angle-right
+              = fa_icon 'angle-right' ,class:"angle-right"
+            .right-icon
+              = image_tag "/SVG/logo_red.svg" , width:45, height:45
+          %li.mypage-tab-notification__link
+            %a.mypage-item-link
+              .mypage-item-link__text
+                7日後、P999還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+              .mypage-item-link__time
+                %i.mypage-item-link__time__clock
+                  = fa_icon 'clock-o' ,class:"clock "
+                %span.mypage-item-link__time__date
+                  2日前
+            %i.angle-right
+              = fa_icon 'angle-right' ,class:"angle-right"
+            .right-icon
+              = image_tag "/SVG/logo_red.svg" , width:45, height:45
+          %li.mypage-tab-notification__link
+            %a.mypage-item-link
+              .mypage-item-link__text
+                購入ごとに最大3％還元！お支払い方法は《メルペイスマート払い》が一番お得
+              .mypage-item-link__time
+                %i.mypage-item-link__time__clock
+                  = fa_icon 'clock-o' ,class:"clock "
+                %span.mypage-item-link__time__date
+                  2日前
+            %i.angle-right
+              = fa_icon 'angle-right' ,class:"angle-right"
+            .right-icon
+              = image_tag "/SVG/logo_red.svg" , width:45, height:45
+          %li.mypage-tab-notification__link
+            %a.mypage-item-link
+              .mypage-item-link__text
+                《今から3日間限定》参加ボタンを押すだけでP1,000もらえるチャンス！
+              .mypage-item-link__time
+                %i.mypage-item-link__time__clock
+                  = fa_icon 'clock-o' ,class:"clock "
+                %span.mypage-item-link__time__date
+                  2日前
+            %i.angle-right
+              = fa_icon 'angle-right' ,class:"angle-right"
+            .right-icon
+              = image_tag "/SVG/logo_red.svg" , width:45, height:45
+          %li.mypage-go-list
+            %a.mypage-go-list__all
+              一覧を見る
+    %section.mypage-tab-container
+      %h2.mypage-tab-container__head
+        購入した商品
+      %ul.mypage-tabs
+        %li.transaction
+          %h3.transaction__item
+            取引中
+        %li.past_transaction
+          %h3.past_transaction__item
+            過去の取引
+      .item-content
+        %ul.item-content__list
+          取引中の商品がありません
+        .item-content__icon
+          = image_tag "/SVG/logo_red.svg", width:220, height:80
+
+.last-footer
+  = render "shared/footer"

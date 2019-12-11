@@ -8,5 +8,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def user_mypage
+  end
   
 end
