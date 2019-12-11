@@ -1,0 +1,10 @@
+%h2 購入が完了しました！
+%p
+  = image_tag @item.images[0].image
+%p 
+  = @item.name
+%p 
+  = @item.price
+%br
+= link_to root_path do
+  トップ画面に戻る

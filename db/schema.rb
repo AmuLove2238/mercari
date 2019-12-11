@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191209074456) do
+ActiveRecord::Schema.define(version: 20191210045746) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "address_family_name_kanji", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20191209074456) do
     t.integer  "item_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "ancestry"
     t.index ["item_id"], name: "index_categories_on_item_id", using: :btree
   end
 
@@ -68,16 +69,17 @@ ActiveRecord::Schema.define(version: 20191209074456) do
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                        null: false
     t.text     "detail",        limit: 65535, null: false
-    t.string   "condition",                   null: false
     t.string   "deliverdays",                 null: false
     t.integer  "price",                       null: false
     t.integer  "handing"
     t.string   "profit"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "condition",                   null: false
     t.string   "postage",                     null: false
     t.string   "prefecture_id",               null: false
     t.integer  "seller_id"
+    t.integer  "buyer_id"
   end
 
   create_table "personals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

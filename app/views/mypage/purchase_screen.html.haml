@@ -1,0 +1,62 @@
+.headers
+  %h1
+    = link_to root_path do
+      = image_tag "/svg/fmarket_logo_red.svg"
+.mainsss
+  .main-1
+    購入内容の確認
+  .main-2
+    .main-2__middle
+      .imgss
+      .main-2__middle__items
+        .item-name
+          aaaaa
+        .item-price
+          %span １１１１
+          %span.qqqq (税込) 送料込み
+        
+  .main-3
+    .main-3__bottom
+      .main-3__bottom__top
+        .main-3__bottom__top__top
+          %p 支払い金額
+          .price
+            %span
+              1111
+        .main-3__bottom__top__bottom
+          .icon-cheak
+            
+          .label
+            ポイントを使用(所持ポイント:p0)
+      .main-3__bottom__middle
+        %p 支払い方法
+        .iconss
+          %i.fas.fa-plus-circle
+          %span 登録してください
+      .main-3__bottom__bottom
+        %p 配送先
+        .iconss
+          %i.fas.fa-plus-circle
+          %span 登録してください
+    .main4
+      %p 購入する   
+
+.footers
+  %nav{class:"sign-up-footer"}
+    %ul
+      %li
+        = link_to href: "#" do
+          プライバシーポリシー
+      %li
+        = link_to href: "#" do
+          メルカリ利用規約
+      %li
+        = link_to href: "#" do
+          特定商取引に関する表記
+  =link_to href:"#", class:"footer-logo" do
+    = image_tag "/svg/logo_gray.svg"
+  %p
+    %small© 2019 Mercari
+
+
+   

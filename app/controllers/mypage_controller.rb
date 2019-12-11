@@ -12,4 +12,12 @@ class MypageController < ApplicationController
     
   end
 
+  def purchase_screen
+  end
+
+  def identification
+  end
+
+
+
 end
