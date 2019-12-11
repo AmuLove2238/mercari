@@ -8,6 +8,7 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
+  z-index: 100;
   p{
     font-size:22px;
     color: rgb(255, 255, 255);
@@ -29,11 +30,16 @@
 
 main{
   text-align: center;
-  width: 100%;
-  .top_image{
-    background-image: image-url("/img/top_campaign.jpg");
+    width: 100%;
+  .center-item{
     height:390px;
     background-position: center;
+    img{
+      height: 390px;
+    }
+    button{
+      display: none;
+    }
   }
   .items__header{
     background-color: #FFFF;
