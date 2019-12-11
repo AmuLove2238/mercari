@@ -115,6 +115,7 @@ class ItemsController < ApplicationController
       # :third_category_id, 
       # :size, 
       :postage, 
+      
       images_attributes: [:image],
       regions_attributes: [:name]
     ).merge(
