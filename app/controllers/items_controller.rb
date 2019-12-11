@@ -43,7 +43,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(update_item_params)
+    if @item.seller_id == current_user.id && @item.update(update_item_params)
+      params[:images]['image'].each do |image|
+        @item.images.update(image: image, item_id: @item.id)
+      end
       redirect_to item_path(@item)
     else
       render :edit

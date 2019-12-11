@@ -11,7 +11,6 @@
       %p 最大10枚までアップロードできます
       = f.fields_for :images do |i|
         .dropzone-container
-          #preview
           .dropzone-area
             =i.label :image, class: "dropzone-box", for: "upload-image" do
               .input_area
@@ -20,17 +19,16 @@
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
                 = i.file_field :image, multiple:true, type: "file" ,onchange: "previewFiles()", name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-
-                = image_tag "",height:"150",alt:"Image preview",name:'preview0'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview1'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview2'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview3'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview4'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview5'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview6'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview7'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview8'
-                = image_tag "",height:"150",alt:"Image preview",name:'preview9'
+                = image_tag "",height:"150",name:'preview0'
+                = image_tag "",height:"150",name:'preview1'
+                = image_tag "",height:"150",name:'preview2'
+                = image_tag "",height:"150",name:'preview3'
+                = image_tag "",height:"150",name:'preview4'
+                = image_tag "",height:"150",name:'preview5'
+                = image_tag "",height:"150",name:'preview6'
+                = image_tag "",height:"150",name:'preview7'
+                = image_tag "",height:"150",name:'preview8'
+                = image_tag "",height:"150",name:'preview9'
 
     .stuff-name
       .stuff-name__top
